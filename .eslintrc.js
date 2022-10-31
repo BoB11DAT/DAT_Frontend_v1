@@ -1,12 +1,8 @@
 module.exports = {
 	root: true,
-  parserOptions: {
-    project: 'tsconfig.json',
-    tsconfigRootDir : __dirname, 
-    sourceType: 'module',
-  },
 	env: {
 		browser: true,
+    es2021: true,
 		node: true,
 	},
 	extends: [
@@ -15,6 +11,7 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     'plugin:prettier/recommended'
   ],
+  ignorePatterns: ['.eslintrc.js'],
 	rules: {
 		'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		'no-debug': process.env.NODE_ENV === 'production' ? 'error' : 'off',

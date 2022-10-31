@@ -1,0 +1,21 @@
+@use "~/assets/styles/_variables";
+
+header {
+  height: 64px;
+  display: flex;
+  padding-left: 160px;
+  padding-right: 85px;
+  align-items: center;
+  vertical-align: middle;
+  background-color: $header_color;
+  border-bottom: 1px solid $header_border_color;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+}
+
+.header_item {
+  height: 100%;
+}
