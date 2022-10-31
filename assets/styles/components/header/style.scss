@@ -1,6 +1,5 @@
-@use "~/assets/styles/_variables";
-
 header {
+  top: 0;
   height: 64px;
   display: flex;
   padding-left: 160px;
@@ -9,13 +8,44 @@ header {
   vertical-align: middle;
   background-color: $header_color;
   border-bottom: 1px solid $header_border_color;
+  font-size: 16px;
+  position: fixed;
+
+  .logo {
+    width: 42px;
+    height: 42px;
+    margin-right: 220px;
+  }
+  
+  .header_item {
+    height: 100%;
+    display: block;
+    padding: 22.5px 31px;
+    font-family: Pretendard;
+    font-weight: $font_medium;
+  
+    &:hover {
+      background-color: #DDDDDD;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+  
+  .my_page, .logout {
+    padding: 8.5px 18.5px;
+    font-family: Pretendard;
+    font-weight: $font_bold;
+  }
+  
+  .my_page {
+    margin-left: 470px;
+  }
+  
+  .logout {
+    color: $header_logout_text_color;
+    margin-left: 24px;
+  }
 }
 
-.logo {
-  width: 42px;
-  height: 42px;
-}
-
-.header_item {
-  height: 100%;
+a:hover {
+  cursor: pointer;
 }

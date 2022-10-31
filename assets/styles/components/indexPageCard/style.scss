@@ -1,0 +1,27 @@
+div {
+  width: 200px;
+  height: 260px;
+  background-color: $index_page_card_color;
+  border-radius: 16px;
+  margin-right: 48px;
+}
+
+.menu_item {
+  align-items: center;
+  vertical-align: middle;
+  display:flex;
+  flex-direction: column;
+
+  img {
+    margin-top: 60px;
+    width: 90px;
+    height: 90px;
+  }
+
+  p {
+    margin-top: 30px;
+    font-size: 20px;
+    font-family: Pretendard;
+    font-weight: $font_black;
+  }
+}

@@ -2,7 +2,9 @@
 <template>
   <header>
     <a class="logo"><img src="~/assets/img/logo.svg" /></a>
-    <a v-for="(i, n) in headerItems" :key="n">{{ i }}</a>
+    <a v-for="(i, n) in headerItems" :key="n" class="header_item">{{ i }}</a>
+    <a class="my_page">마이 페이지</a>
+    <a class="logout">로그아웃</a>
   </header>
 </template>
 

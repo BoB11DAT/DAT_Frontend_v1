@@ -1,0 +1,40 @@
+.banner {
+  margin-top: 64px;
+  left: 0;
+  right: 0;
+  height: 330px;
+  background-color: $banner_color;
+  display: flex;
+  border-bottom: solid 1px $banner_border_color;
+
+  .banner_text {
+    margin-top: 50px;
+    margin-left: 310px;
+
+    h1 {
+      font-size: 64px;
+      font-family: Pretendard;
+      font-weight: $font_black;
+  
+      &:last-child {
+        color: $banner_text_color;
+      }
+    }
+  }
+
+  .banner_trapezoid {
+    height: 0;
+    width: 480px;
+    margin-left: 285px;
+    border-top: 330px solid $banner_trapezoid_color;
+    border-left: 80px solid transparent;
+    border-right: 40px solid transparent;
+  }
+}
+
+.menus {
+  display: flex;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  margin-left: 475px;
+}
