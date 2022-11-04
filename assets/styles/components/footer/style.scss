@@ -1,7 +1,8 @@
+@import "_variables.scss";
+
 footer {
   border-top: 1px solid $footer_border_color;
   font-size: 13px;
-  font-family: Pretendard;
   font-weight: $font_medium;
   color: $footer_text_color;
   padding-left: 310px;

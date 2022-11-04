@@ -1,5 +1,6 @@
+@import "_variables.scss";
+
 .banner {
-  margin-top: 64px;
   left: 0;
   right: 0;
   height: 330px;
@@ -13,7 +14,6 @@
 
     h1 {
       font-size: 64px;
-      font-family: Pretendard;
       font-weight: $font_black;
   
       &:last-child {

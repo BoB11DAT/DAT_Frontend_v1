@@ -1,5 +1,6 @@
 @import "_variables.scss";
-@import "fonts.scss";
+@import "_fonts.scss";
+@import "_animation.scss";
 
 * {
   margin: 0;
@@ -12,4 +13,8 @@
 
 body {
   background-color: $body_color;
+}
+
+#app {
+  padding-top: 64px;
 }

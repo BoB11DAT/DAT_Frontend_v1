@@ -1,8 +1,8 @@
 <template>
-  <div class="menu_item">
+  <a class="menu_item">
     <img :src="props.menu.img" />
     <p>{{ props.menu.content }}</p>
-  </div>
+  </a>
 </template>
 
 <script setup>

@@ -1,0 +1,15 @@
+@import "_variables.scss";
+
+.main {
+  display: inline-flex;
+  align-items:flex-start;
+
+  .panel {
+    margin: 40px 0 40px 36px;
+    padding: 24px 38px;
+    border-radius: 16px;
+    background-color: $main_panel_background_color;
+    width: 1100px;
+    height: 615px;
+  }
+}

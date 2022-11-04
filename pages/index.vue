@@ -1,6 +1,4 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <headerFile />
   <div class="banner">
     <div class="banner_text">
       <h1>WELCOME TO</h1>
@@ -9,14 +7,17 @@
     <div class="banner_trapezoid"></div>
   </div>
   <div class="menus">
-    <indexPageCard v-for="(i, n) in menuItems" :key="n" :menu="i" />
+    <indexPageCard v-for="(i, n) in indexItems" :key="n" :menu="i" />
   </div>
-  <footerFile />
 </template>
 
 <script setup>
-import { ref } from "vue";
-import menuItems from "~/assets/datas/menuItems.js";
+import { ref, definePageMeta } from "vue";
+import indexItems from "~~/assets/datas/indexItems.ts";
+
+definePageMeta({
+  layout: "index-page",
+});
 </script>
 
 <style lang="scss" scoped>

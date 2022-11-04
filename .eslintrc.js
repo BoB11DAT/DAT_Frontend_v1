@@ -6,15 +6,17 @@ module.exports = {
 		node: true,
 	},
 	extends: [
-    'eslint:recommended',
-    'plugin:nuxt/recommended',
-    'plugin:vue/vue3-recommended',
-    'plugin:prettier/recommended'
+    "eslint:recommended",
+    "plugin:nuxt/recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:prettier/recommended"
   ],
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: [".eslintrc.js"],
 	rules: {
-		'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-		'no-debug': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-		'no-unused-vars': 'off',
+		"no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+		"no-debug": process.env.NODE_ENV === "production" ? "error" : "off",
+		"no-unused-vars": "off",
+    "vue/multi-word-component-names": "off",
+    "vue/component-definition-name-casing": "off",
 	},
 };
