@@ -9,8 +9,13 @@ module.exports = {
     "eslint:recommended",
     "plugin:nuxt/recommended",
     "plugin:vue/vue3-recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
   ],
+  parserOptions: {
+    parser: "@typescript-eslint/parser",
+    ecmaVersion: "latest",
+    sourceType: "module",
+  },
   ignorePatterns: [".eslintrc.js"],
 	rules: {
 		"no-console": process.env.NODE_ENV === "production" ? "error" : "off",

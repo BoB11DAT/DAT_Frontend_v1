@@ -1,0 +1,90 @@
+@import "_variables.scss";
+
+.applying_view {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .applying_panel {
+    margin-top: 26px;
+    padding: 48px 32px 0;
+    border: 1px solid $applying_panel_border_color;
+    flex: 1;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      &:first-child {
+        border-bottom: 1px solid $applying_table_border_color;
+      }
+
+      &:nth-child(2) {
+        margin-top: 10px;
+      }
+
+      th {
+        width: 0;
+        height: 26px;
+        font-size: 14px;
+        color: $applying_table_header_color;
+        text-align: center;
+      }
+
+      tr {
+        td {
+          width: 33%;
+          height: 36px;
+          text-align: center;
+          font-size: 14px;
+          font-weight: $font_bold;
+          color: $applying_table_text_color;
+
+          button {
+            padding: 4px 20px;
+            font-size: 13px;
+            font-weight: $font_bold;
+            color: $applying_button_text_color;
+            background-color: $applying_button_background_color;
+            border-radius: 12px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    hr {
+      margin-top: 10px;
+      border-top: 1px solid $applying_table_border_color;
+    }
+
+    .agreement_box {
+      margin-top: 170px;
+      text-align: center;
+
+      input[id="agreement"] {
+        width: 20px;
+        height: 20px; 
+        position: relative;
+        top: 5px;
+      }
+  
+      label[for="agreement"] {
+        margin-left: 10px;
+        font-size: 15px;
+        font-weight: $font_bold;
+      }
+    }
+
+    .applying_button {
+      display: block;
+      margin: 24px auto 0;
+      padding: 8px 60px;
+      font-size: 14px;
+      font-weight: $font_bold;
+      color: $applying_button_text_color;
+      background-color: $applying_button_background_color;
+      border-radius: 36px;
+    }
+  }
+}

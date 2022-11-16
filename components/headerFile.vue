@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <header>
     <NuxtLink :to="{ path: '/' }" class="logo"
@@ -7,13 +6,21 @@
     <template v-for="(i, n) in headerItems" :key="n">
       <NuxtLink :to="i.path" class="header_item">{{ i.content }}</NuxtLink>
     </template>
-    <a class="my_page">마이 페이지</a>
-    <a class="logout">로그아웃</a>
+    <template v-if="store.accessToken">
+      <a class="my_page">마이 페이지</a>
+      <a class="logout">로그아웃</a>
+    </template>
+    <template v-else>
+      <a class="login">로그인</a>
+    </template>
   </header>
 </template>
 
 <script setup>
-import headerItems from "~~/assets/datas/headerItems.ts";
+import headerItems from "~/assets/datas/headerItems";
+import { useAuthStore } from "~/store/auth";
+
+const store = useAuthStore();
 </script>
 
 <style lang="scss" scoped>

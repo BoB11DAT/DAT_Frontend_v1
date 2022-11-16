@@ -1,8 +1,8 @@
 @import "_variables.scss";
 
 .menu_panel {
-  display: inline-flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(208px, max-content);
   background-color: $menu_panel_background_color;
   padding: 24px 16px;
   font-size: 14px;
@@ -10,6 +10,10 @@
   border-radius: 16px;
   margin-top: 48px;
   margin-left: 214px;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 
   .menu_panel_title {
     font-size: 16px;
@@ -33,5 +37,6 @@
 
   .active {
     background-color: $menu_panel_item_active_background_color;
+    color: $menu_panel_item_active_text_color;
   }
 }

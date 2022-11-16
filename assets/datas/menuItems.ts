@@ -4,15 +4,15 @@ export default {
     contents: [
       {
         content: "평가 접수 안내",
-        query: "announcement",
+        param: "announcement",
       },
       {
         content: "평가 접수",
-        query: "receipt",
+        param: "receipt",
       },
       {
         content: "접수 내역",
-        query: "history",
+        param: "history",
       },
     ],
   },
@@ -21,7 +21,7 @@ export default {
     contents: [
       {
         content: "평가 응시",
-        query: "applying",
+        param: "applying",
       },
     ],
   },

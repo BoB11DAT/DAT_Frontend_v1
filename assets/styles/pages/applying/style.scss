@@ -1,6 +1,6 @@
 @import "_variables.scss";
 
-.receipt {
+.applying {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -8,10 +8,4 @@
 
 .title {
   font-size: 20px;
-}
-
-.announcement_view {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
 }
