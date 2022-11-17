@@ -11,32 +11,37 @@
         <th>평가취소</th>
       </table>
       <table>
-        <tr
-          v-for="(historyOrder, n) in props.historyOrders.receiptRegistrations"
-          :key="n"
-        >
+        <tr v-for="(historyOrder, n) in store.registrationHistory" :key="n">
           <td>
             {{
-              historyOrder.receipt_available_start_date
-                .toString()
-                .substring(0, 10)
+              new Date(
+                historyOrder.receipt_available_start_date,
+              ).toLocaleDateString()
             }}
             ~
             {{
-              historyOrder.receipt_available_end_date
-                .toString()
-                .substring(0, 10)
+              new Date(
+                historyOrder.receipt_available_end_date,
+              ).toLocaleDateString()
             }}
           </td>
-          <td>{{ historyOrders.user.user_name }}</td>
-          <td>{{ historyOrders.user.user_tell }}</td>
+          <td>{{ userData.user_name }}</td>
+          <td>{{ userData.user_tell }}</td>
           <td v-if="checkEnd(historyOrder)">응시가능</td>
           <td v-else>응시불가</td>
           <td>
             <button :class="{ disabled: !checkEnd(historyOrder) }">응시</button>
           </td>
           <td>
-            <button :class="{ disabled: !checkEnd(historyOrder) }">취소</button>
+            <button
+              :class="{
+                disabled:
+                  !checkEnd(historyOrder) ||
+                  historyOrder.receipt_registration_open,
+              }"
+            >
+              취소
+            </button>
           </td>
         </tr>
       </table>
@@ -45,14 +50,20 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType } from "vue";
+import { computed, PropType } from "vue";
 import { ReceiptRegistration } from "~/assets/interfaces/receipt";
+import { useRegistrationHistoryStore } from "~/store/registrationHistory";
+import { User } from "~/assets/interfaces/user";
 
 const props = defineProps({
-  historyOrders: {
-    type: ReceiptRegistration,
+  userData: {
+    type: Object as PropType<User>,
     required: true,
   },
+});
+const store = useRegistrationHistoryStore();
+const registrationHistory = computed<ReceiptRegistration[]>(() => {
+  return store.getRegistrationHistory;
 });
 
 function checkEnd(historyOrder) {

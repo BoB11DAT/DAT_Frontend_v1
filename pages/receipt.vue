@@ -10,7 +10,7 @@
     />
     <ReceiptHistoryView
       v-else-if="currentMenu === 'history'"
-      :history-orders="historyOrders"
+      :user-data="userData"
     />
   </div>
 </template>
@@ -18,9 +18,12 @@
 <script lang="ts" setup>
 import { ref, computed, onMounted, Ref } from "vue";
 import { useCurrentMenuStore } from "~/store/currentMenu";
+import { useRegistrationHistoryStore } from "~/store/registrationHistory";
 import { getReceipts } from "~/composables/receipts";
-import { getRegistrationHistorys } from "~/composables/registrationHistorys";
 import { Receipt, ReceiptRegistration } from "~/assets/interfaces/receipt";
+import { getRegistrationHistorys } from "~/api/receipt";
+import { getUserData } from "~/composables/userData";
+import { User } from "~/assets/interfaces/user";
 
 const announcementOrders = [
   "응시회차 확인",
@@ -30,11 +33,13 @@ const announcementOrders = [
   "접수 완료",
 ];
 const receiptOrders = ref([]) as Ref<Receipt[]>;
-const historyOrders = ref({}) as Ref<ReceiptRegistration>;
-const store = useCurrentMenuStore();
+const historyOrders = ref({}) as Ref<ReceiptRegistration[]>;
+const currentMenuStore = useCurrentMenuStore();
+const registrationHistoryStore = useRegistrationHistoryStore();
 const currentMenu = computed(() => {
-  return store.getCurrentMenu as string;
+  return currentMenuStore.getCurrentMenu as string;
 });
+const userData = ref({}) as Ref<User>;
 
 // eslint-disable-next-line no-undef
 definePageMeta({
@@ -43,8 +48,8 @@ definePageMeta({
 
 onMounted(async () => {
   receiptOrders.value = (await getReceipts()) as Receipt[];
-  historyOrders.value =
-    (await getRegistrationHistorys()) as ReceiptRegistration;
+  await getRegistrationHistorys();
+  userData.value = await getUserData();
 });
 </script>
 

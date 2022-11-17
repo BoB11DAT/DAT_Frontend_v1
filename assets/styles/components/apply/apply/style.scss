@@ -6,6 +6,8 @@
   flex: 1;
 
   .apply_panel {
+    display: flex;
+    flex-direction: column;
     margin-top: 26px;
     padding: 48px 32px 0;
     border: 1px solid $apply_panel_border_color;
@@ -59,7 +61,7 @@
     }
 
     .agreement_box {
-      margin-top: 170px;
+      margin-top: auto;
       text-align: center;
 
       input[id="agreement"] {
@@ -78,13 +80,20 @@
 
     .apply_button {
       display: block;
-      margin: 24px auto 0;
+      margin: 24px auto 32px;
       padding: 8px 60px;
       font-size: 14px;
       font-weight: $font_bold;
       color: $apply_button_text_color;
       background-color: $apply_button_background_color;
       border-radius: 36px;
+      cursor: pointer;
+    }
+
+    .disabled {
+      cursor: not-allowed;
+      background-color: $agreement_button_disabled_background_color;
+      color: $agreement_button_disabled_text_color;
     }
   }
 }

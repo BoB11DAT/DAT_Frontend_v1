@@ -8,14 +8,15 @@
         <th>평가 접수</th>
       </table>
       <table>
-        <tr v-for="(i, n) in props.receiptOrders" :key="n">
+        <tr v-for="(receiptOrder, n) in props.receiptOrders" :key="n">
           <td>
-            {{ i.receipt_start_date.toString().substring(0, 10) }} ~
-            {{ i.receipt_end_date.toString().substring(0, 10) }}
+            {{ new Date(receiptOrder.receipt_start_date).toLocaleDateString() }}
+            ~
+            {{ new Date(receiptOrder.receipt_end_date).toLocaleDateString() }}
           </td>
-          <td>{{ i.receipt_round }}</td>
+          <td>{{ receiptOrder.receipt_round }}</td>
           <td>
-            <button @click="doReceiptRegistration(i.receipt_round)">
+            <button @click="doReceiptRegistration(receiptOrder.receipt_round)">
               접수
             </button>
           </td>
@@ -27,7 +28,7 @@
 
 <script lang="ts" setup>
 import { PropType } from "vue";
-import { receiptRegistration } from "~/api/receipt";
+import { receiptRegistration, getRegistrationHistorys } from "~/api/receipt";
 import { Receipt } from "~/assets/interfaces/receipt";
 import { useCurrentMenuStore } from "~/store/currentMenu";
 
@@ -39,8 +40,9 @@ const props = defineProps({
 });
 const store = useCurrentMenuStore();
 
-function doReceiptRegistration(data: string) {
-  receiptRegistration({ receipt_round: data });
+async function doReceiptRegistration(data: string) {
+  await receiptRegistration({ receipt_round: data });
+  await getRegistrationHistorys();
   store.setCurrentMenu("history");
 }
 </script>

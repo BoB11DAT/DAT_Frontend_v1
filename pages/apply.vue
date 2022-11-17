@@ -1,31 +1,26 @@
 <template>
   <div class="apply">
-    <applyView v-if="currentMenu === 'apply'" :apply-orders="applyOrders" />
+    <applyView v-if="currentMenu === 'apply'" />
   </div>
 </template>
 
-<script setup>
-import { computed } from "vue";
+<script lang="ts" setup>
+import { computed, onMounted } from "vue";
 import { useCurrentMenuStore } from "~/store/currentMenu";
+import { useRegistrationHistoryStore } from "~/store/registrationHistory";
+import { getRegistrationHistorys } from "~/api/receipt";
 
-const applyOrders = [
-  {
-    time: "2022.09.08 ~ 2022.10.04",
-    round: "P01-2022-1",
-  },
-  {
-    time: "2022.09.08 ~ 2022.10.04",
-    round: "P01-2022-2",
-  },
-  {
-    time: "2022.09.08 ~ 2022.10.04",
-    round: "P01-2022-김성빈",
-  },
-];
-const store = useCurrentMenuStore();
+const registrationHistoryStore = useRegistrationHistoryStore();
+
+const currentMenuStore = useCurrentMenuStore();
 const currentMenu = computed(() => {
-  return store.getCurrentMenu;
+  return currentMenuStore.getCurrentMenu;
 });
+
+onMounted(async () => {
+  await getRegistrationHistorys();
+});
+
 // eslint-disable-next-line no-undef
 definePageMeta({
   middleware: ["auth"],

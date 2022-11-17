@@ -34,7 +34,6 @@ async function userLogin() {
       secure: process.env.NODE_ENV === "production",
       maxAge: 60 * 60 * 24 * 7,
     });
-    console.log(res);
     cookie.value = res.refreshToken;
     location.href = "/";
   });

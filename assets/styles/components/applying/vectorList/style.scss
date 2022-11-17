@@ -1,0 +1,15 @@
+@import "_variables.scss";
+
+.vector_list_panel {
+  display: inline-block;
+  width: 236px;
+  padding: 16px 22px;
+  font-size: 16px;
+  font-weight: $font_bold;
+  background-color: $vector_list_panel_background_color;
+  border-radius: 16px;
+
+  p:not(:first-child) {
+    margin-top: 4px;
+  }
+}
