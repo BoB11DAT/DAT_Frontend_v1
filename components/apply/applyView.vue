@@ -1,14 +1,14 @@
 <template>
-  <div class="applying_view">
-    <h1 class="title">평가 접수</h1>
-    <div class="applying_panel">
+  <div class="apply_view">
+    <h1 class="title">평가 응시</h1>
+    <div class="apply_panel">
       <table>
         <th>응시 가능 기간</th>
         <th>응시 회차</th>
         <th>평가 선택</th>
       </table>
       <table>
-        <tr v-for="(i, n) in props.applyingOrders" :key="n">
+        <tr v-for="(i, n) in props.applyOrders" :key="n">
           <td>{{ i.time }}</td>
           <td>{{ i.round }}</td>
           <td>
@@ -27,14 +27,14 @@
           <input id="agreement" type="checkbox" />
           <label for="agreement"
             >응시하려는 회차는 [{{
-              props.applyingOrders[selectedRound].round
+              props.applyOrders[selectedRound].round
             }}]이며, 응시가능기간은 [{{
-              props.applyingOrders[selectedRound].time
+              props.applyOrders[selectedRound].time
             }}]임을 확인했습니다.
           </label>
         </div>
       </template>
-      <button class="applying_button">응시하기</button>
+      <button class="apply_button">응시하기</button>
     </div>
   </div>
 </template>
@@ -43,7 +43,7 @@
 import { ref, computed } from "vue";
 
 const props = defineProps({
-  applyingOrders: {
+  applyOrders: {
     type: Array,
     required: true,
   },
@@ -53,5 +53,5 @@ let selectedRound = ref(0);
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/styles/components/applying/applying/style.scss";
+@import "~/assets/styles/components/apply/apply/style.scss";
 </style>

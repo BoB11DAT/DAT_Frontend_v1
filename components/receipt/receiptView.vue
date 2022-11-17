@@ -9,10 +9,15 @@
       </table>
       <table>
         <tr v-for="(i, n) in props.receiptOrders" :key="n">
-          <td>{{ i.time }}</td>
-          <td>{{ i.round }}</td>
           <td>
-            <button>접수</button>
+            {{ i.receipt_start_date.toString().substring(0, 10) }} ~
+            {{ i.receipt_end_date.toString().substring(0, 10) }}
+          </td>
+          <td>{{ i.receipt_round }}</td>
+          <td>
+            <button @click="doReceiptRegistration(i.receipt_round)">
+              접수
+            </button>
           </td>
         </tr>
       </table>
@@ -20,13 +25,24 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import { PropType } from "vue";
+import { receiptRegistration } from "~/api/receipt";
+import { Receipt } from "~/assets/interfaces/receipt";
+import { useCurrentMenuStore } from "~/store/currentMenu";
+
 const props = defineProps({
   receiptOrders: {
-    type: Array,
+    type: Array as PropType<Receipt[]>,
     required: true,
   },
 });
+const store = useCurrentMenuStore();
+
+function doReceiptRegistration(data: string) {
+  receiptRegistration({ receipt_round: data });
+  store.setCurrentMenu("history");
+}
 </script>
 
 <style lang="scss" scoped>

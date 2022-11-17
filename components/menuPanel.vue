@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { onMounted, computed } from "vue";
+import { onMounted, computed, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useCurrentMenuStore } from "~/store/currentMenu";
 import menuItems from "~/assets/datas/menuItems";
@@ -30,6 +30,13 @@ const currentMenu = computed(() => {
 onMounted(() => {
   store.setCurrentMenu(menuItem.value?.contents[0].param);
 });
+watch(
+  () => route.name,
+  () => {
+    store.setCurrentMenu(menuItem.value?.contents[0].param);
+  },
+);
+// eslint-disable-next-line vue/return-in-computed-property
 </script>
 
 <style lang="scss" scoped>

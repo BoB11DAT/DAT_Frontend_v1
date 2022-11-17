@@ -9,7 +9,7 @@ export default [
   },
   {
     content: "평가 응시",
-    img: "assets/img/applying.svg",
+    img: "assets/img/apply.svg",
   },
   {
     content: "평가 결과 조회",

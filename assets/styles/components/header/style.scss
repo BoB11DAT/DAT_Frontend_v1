@@ -33,7 +33,7 @@ header {
     }
   }
   
-  .my_page, .logout {
+  .my_page, .logout, .login {
     padding: 8.5px 18.5px;
     font-weight: $font_bold;
   }
@@ -42,9 +42,13 @@ header {
     margin-left: 470px;
   }
   
-  .logout {
+  .logout, .login {
     color: $header_logout_text_color;
     margin-left: 24px;
+  }
+
+  .login {
+    margin-left: 630px
   }
 }
 

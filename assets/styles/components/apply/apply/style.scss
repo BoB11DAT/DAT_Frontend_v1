@@ -1,14 +1,14 @@
 @import "_variables.scss";
 
-.applying_view {
+.apply_view {
   display: flex;
   flex-direction: column;
   flex: 1;
 
-  .applying_panel {
+  .apply_panel {
     margin-top: 26px;
     padding: 48px 32px 0;
-    border: 1px solid $applying_panel_border_color;
+    border: 1px solid $apply_panel_border_color;
     flex: 1;
 
     table {
@@ -16,7 +16,7 @@
       border-collapse: collapse;
 
       &:first-child {
-        border-bottom: 1px solid $applying_table_border_color;
+        border-bottom: 1px solid $apply_table_border_color;
       }
 
       &:nth-child(2) {
@@ -27,7 +27,7 @@
         width: 0;
         height: 26px;
         font-size: 14px;
-        color: $applying_table_header_color;
+        color: $apply_table_header_color;
         text-align: center;
       }
 
@@ -38,14 +38,14 @@
           text-align: center;
           font-size: 14px;
           font-weight: $font_bold;
-          color: $applying_table_text_color;
+          color: $apply_table_text_color;
 
           button {
             padding: 4px 20px;
             font-size: 13px;
             font-weight: $font_bold;
-            color: $applying_button_text_color;
-            background-color: $applying_button_background_color;
+            color: $apply_button_text_color;
+            background-color: $apply_button_background_color;
             border-radius: 12px;
             cursor: pointer;
           }
@@ -55,7 +55,7 @@
 
     hr {
       margin-top: 10px;
-      border-top: 1px solid $applying_table_border_color;
+      border-top: 1px solid $apply_table_border_color;
     }
 
     .agreement_box {
@@ -76,14 +76,14 @@
       }
     }
 
-    .applying_button {
+    .apply_button {
       display: block;
       margin: 24px auto 0;
       padding: 8px 60px;
       font-size: 14px;
       font-weight: $font_bold;
-      color: $applying_button_text_color;
-      background-color: $applying_button_background_color;
+      color: $apply_button_text_color;
+      background-color: $apply_button_background_color;
       border-radius: 36px;
     }
   }

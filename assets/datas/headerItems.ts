@@ -9,7 +9,7 @@ export default [
   },
   {
     content: "평가 응시",
-    path: "applying",
+    path: "apply",
   },
   {
     content: "결과 조회",

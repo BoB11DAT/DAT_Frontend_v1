@@ -16,12 +16,12 @@ export default {
       },
     ],
   },
-  applying: {
+  apply: {
     title: "평가 응시",
     contents: [
       {
         content: "평가 응시",
-        param: "applying",
+        param: "apply",
       },
     ],
   },

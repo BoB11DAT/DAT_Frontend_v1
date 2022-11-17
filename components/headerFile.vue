@@ -11,7 +11,7 @@
       <a class="logout">로그아웃</a>
     </template>
     <template v-else>
-      <a class="login">로그인</a>
+      <NuxtLink :to="'login'" class="login">로그인</NuxtLink>
     </template>
   </header>
 </template>

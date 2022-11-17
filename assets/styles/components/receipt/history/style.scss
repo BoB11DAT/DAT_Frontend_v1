@@ -55,6 +55,12 @@
             border-radius: 12px;
             cursor: pointer;
           }
+
+          .disabled {
+            cursor: not-allowed;
+            background-color: $history_button_disabled_background_color;
+            color: $history_button_disabled_text_color;
+          }
         }
       }
     }

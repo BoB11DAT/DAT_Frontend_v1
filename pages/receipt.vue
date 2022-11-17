@@ -8,13 +8,19 @@
       v-else-if="currentMenu === 'receipt'"
       :receipt-orders="receiptOrders"
     />
-    <ReceiptHistoryView v-else :history-orders="historyOrders" />
+    <ReceiptHistoryView
+      v-else-if="currentMenu === 'history'"
+      :history-orders="historyOrders"
+    />
   </div>
 </template>
 
-<script setup>
-import { computed } from "vue";
+<script lang="ts" setup>
+import { ref, computed, onMounted, Ref } from "vue";
 import { useCurrentMenuStore } from "~/store/currentMenu";
+import { getReceipts } from "~/composables/receipts";
+import { getRegistrationHistorys } from "~/composables/registrationHistorys";
+import { Receipt, ReceiptRegistration } from "~/assets/interfaces/receipt";
 
 const announcementOrders = [
   "응시회차 확인",
@@ -23,43 +29,22 @@ const announcementOrders = [
   "본인 확인",
   "접수 완료",
 ];
-const receiptOrders = [
-  {
-    time: "2022.09.01 ~ 2022.09.30",
-    round: "P01-2022-1",
-  },
-  {
-    time: "2022.09.01 ~ 2022.09.30",
-    round: "P01-2022-2",
-  },
-  {
-    time: "2022.09.01 ~ 2022.09.30",
-    round: "P01-2022-김성빈",
-  },
-];
-const historyOrders = [
-  {
-    time: "2022.09.08 ~ 2022.10.04",
-    name: "김성빈",
-    tell: "010-1234-5678",
-    available: true,
-  },
-  {
-    time: "2022.09.08 ~ 2022.10.04",
-    name: "김성빈",
-    tell: "010-1234-5678",
-    available: true,
-  },
-  {
-    time: "2022.09.08 ~ 2022.10.04",
-    name: "김성빈",
-    tell: "010-1234-5678",
-    available: false,
-  },
-];
+const receiptOrders = ref([]) as Ref<Receipt[]>;
+const historyOrders = ref({}) as Ref<ReceiptRegistration>;
 const store = useCurrentMenuStore();
 const currentMenu = computed(() => {
-  return store.getCurrentMenu;
+  return store.getCurrentMenu as string;
+});
+
+// eslint-disable-next-line no-undef
+definePageMeta({
+  middleware: ["auth"],
+});
+
+onMounted(async () => {
+  receiptOrders.value = (await getReceipts()) as Receipt[];
+  historyOrders.value =
+    (await getRegistrationHistorys()) as ReceiptRegistration;
 });
 </script>
 
