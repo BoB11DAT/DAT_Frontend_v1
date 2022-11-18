@@ -5,6 +5,7 @@
       :categories="categories"
       :result-judges="resultJudges"
     />
+    <ResultView v-if="currentMenu === 'result'" />
   </div>
 </template>
 

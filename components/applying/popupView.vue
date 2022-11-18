@@ -7,7 +7,7 @@
       </div>
       <div class="button_panel">
         <button class="cancel" @click="$emit('cancelEndApplying')">취소</button>
-        <button class="confirm" @click="endApplying()">제출</button>
+        <button class="confirm" @click="$emit('endApplying')">제출</button>
       </div>
     </div>
   </div>
@@ -15,10 +15,11 @@
 
 <script lang="ts" setup>
 import { computed } from "vue";
+import { useRouter } from "vue-router";
 import { useApplyingAnswerStore } from "~/store/applyingAnswer";
-import { applyingEnd } from "~/api/applying";
 
-const emit = defineEmits(["cancelEndApplying"]);
+const router = useRouter();
+const emit = defineEmits(["cancelEndApplying", "endApplying"]);
 const applyingAnswerStore = useApplyingAnswerStore();
 const notWrited = computed(() => {
   let count = 0;
@@ -32,11 +33,6 @@ const notWrited = computed(() => {
   }
   return 70 - count;
 });
-
-async function endApplying() {
-  await applyingEnd();
-  window.close();
-}
 </script>
 
 <style lang="scss" scoped>

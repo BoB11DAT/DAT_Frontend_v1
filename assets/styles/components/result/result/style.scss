@@ -1,0 +1,58 @@
+@import "_variables.scss";
+
+.result_view {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .result_panel {
+    margin-top: 26px;
+    flex: 1;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      &:first-child {
+        border-bottom: 1px solid $receipt_table_border_color;
+      }
+
+      &:last-child {
+        margin-top: 10px;
+      }
+
+      th {
+        width: 0;
+        height: 26px;
+        font-size: 14px;
+        color: $receipt_table_header_color;
+        text-align: center;
+      }
+
+      tr {
+        td {
+          width: 25%;
+          height: 36px;
+          text-align: center;
+          font-size: 14px;
+          font-weight: $font_bold;
+          color: $receipt_table_text_color;
+
+          a {
+            color: $receipt_button_text_color;
+          }
+
+          button {
+            padding: 4px 20px;
+            font-size: 13px;
+            font-weight: $font_bold;
+            color: $receipt_button_text_color;
+            background-color: $receipt_button_background_color;
+            border-radius: 12px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

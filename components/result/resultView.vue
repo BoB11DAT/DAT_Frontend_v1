@@ -14,7 +14,11 @@
           <td>D01-2022-1-0001</td>
           <td>O</td>
           <td>
-            <a href="">결과 조회</a>
+            <a
+              href="https://kewool.net/report-D01-2022-1-0001.pdf"
+              target="_blank"
+              >결과 조회</a
+            >
           </td>
         </tr>
       </table>

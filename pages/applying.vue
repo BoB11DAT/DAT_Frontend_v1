@@ -1,7 +1,10 @@
 <template>
   <div class="applying">
     <template v-if="popupView">
-      <ApplyingPopupView @cancel-end-applying="cancelEndApplying" />
+      <ApplyingPopupView
+        @cancel-end-applying="cancelEndApplying"
+        @end-applying="endApplyingforPopup"
+      />
     </template>
     <div class="applying_panel">
       <ApplyingVectorList :vectors="vectorItems" />
@@ -21,6 +24,7 @@
 
 <script lang="ts" setup>
 import { onMounted, ref, Ref, computed } from "vue";
+import { useRouter } from "vue-router";
 import vectorItems from "~/assets/datas/vectorItems";
 import { getJudges } from "~/composables/judges";
 import { getApplyingAnswer } from "~/composables/applyingAnswer";
@@ -30,6 +34,7 @@ import { useApplyingAnswerStore } from "~/store/applyingAnswer";
 import { applyingEnd } from "~/api/applying";
 import { getCategories } from "~~/composables/categories";
 
+const router = useRouter();
 const categories = getCategories();
 const applyingAnswerStore = useApplyingAnswerStore();
 const notWrited = computed(() => {
@@ -55,7 +60,14 @@ async function endApplying() {
     return;
   }
   await applyingEnd();
-  window.close();
+  alert("수고하셨습니다. 제출이 완료되었습니다.");
+  router.push({ path: "result" });
+}
+
+async function endApplyingforPopup() {
+  await applyingEnd();
+  alert("수고하셨습니다. 제출이 완료되었습니다.");
+  router.push({ path: "result" });
 }
 
 function cancelEndApplying() {
