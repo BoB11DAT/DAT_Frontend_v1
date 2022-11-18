@@ -25,4 +25,17 @@ export default {
       },
     ],
   },
+  result: {
+    title: "결과 조회",
+    contents: [
+      {
+        content: "문항 풀이",
+        param: "solution",
+      },
+      {
+        content: "결과 조회",
+        param: "result",
+      },
+    ],
+  },
 };

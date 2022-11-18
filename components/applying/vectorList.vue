@@ -1,7 +1,7 @@
 <template>
   <div class="vector_list_panel">
     <p v-for="(vector, n) in props.vectors" :key="n">
-      {{ `${n}. ` }}{{ vector }}
+      {{ `${n + 1}. ` }}{{ vector }}
     </p>
   </div>
 </template>

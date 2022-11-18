@@ -1,6 +1,12 @@
-.applying_view {
+.applying {
   display: flex;
   flex-direction: column;
   flex: 1;
   align-items: center;
+
+  .applying_panel {
+    display: flex;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
 }

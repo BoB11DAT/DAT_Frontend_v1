@@ -38,10 +38,6 @@ async function userLogin() {
     location.href = "/";
   });
 }
-// eslint-disable-next-line no-undef
-definePageMeta({
-  auth: false,
-});
 </script>
 
 <style></style>

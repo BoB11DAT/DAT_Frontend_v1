@@ -4,14 +4,14 @@
     <div class="history_panel">
       <table>
         <th>응시 가능 시간</th>
-        <th>이름</th>
-        <th>전화번호</th>
+        <th>응시 회차</th>
+        <th>수험번호</th>
         <th>응시여부</th>
         <th>평가응시</th>
         <th>평가취소</th>
       </table>
       <table>
-        <tr v-for="(historyOrder, n) in store.registrationHistory" :key="n">
+        <tr v-for="(historyOrder, n) in props.historyOrders" :key="n">
           <td>
             {{
               new Date(
@@ -25,12 +25,26 @@
               ).toLocaleDateString()
             }}
           </td>
-          <td>{{ userData.user_name }}</td>
-          <td>{{ userData.user_tell }}</td>
+          <td>{{ historyOrder.receipt_round }}</td>
+          <td>{{ historyOrder.receipt_registration_number }}</td>
           <td v-if="checkEnd(historyOrder)">응시가능</td>
           <td v-else>응시불가</td>
           <td>
-            <button :class="{ disabled: !checkEnd(historyOrder) }">응시</button>
+            <button
+              v-if="
+                historyOrder.receipt_registration_open && checkEnd(historyOrder)
+              "
+              @click="apply(historyOrder.receipt_registration_number)"
+            >
+              열기
+            </button>
+            <button
+              v-else
+              :class="{ disabled: !checkEnd(historyOrder) }"
+              @click="router.push({ path: 'apply' })"
+            >
+              응시
+            </button>
           </td>
           <td>
             <button
@@ -51,26 +65,47 @@
 
 <script lang="ts" setup>
 import { computed, PropType } from "vue";
+import { useRouter } from "vue-router";
+import { useCookie } from "#app";
 import { ReceiptRegistration } from "~/assets/interfaces/receipt";
-import { useRegistrationHistoryStore } from "~/store/registrationHistory";
 import { User } from "~/assets/interfaces/user";
+import { ReceiptRegistrationCookie } from "~/assets/interfaces/receipt";
+import { continueApplying } from "~/api/receipt";
 
+// eslint-disable-next-line no-undef
+const config = useRuntimeConfig();
 const props = defineProps({
   userData: {
     type: Object as PropType<User>,
     required: true,
   },
+  historyOrders: {
+    type: Array as PropType<ReceiptRegistration[]>,
+    required: true,
+  },
 });
-const store = useRegistrationHistoryStore();
-const registrationHistory = computed<ReceiptRegistration[]>(() => {
-  return store.getRegistrationHistory;
-});
+const router = useRouter();
 
 function checkEnd(historyOrder) {
   return (
     !historyOrder.receipt_registration_end ||
     historyOrder.receipt_available_end_date < new Date()
   );
+}
+
+async function apply(receipt_registration_number: string) {
+  continueApplying({ receipt_registration_number }).then(
+    (res: ReceiptRegistrationCookie) => {
+      const cookie = useCookie("receiptRegistrationNumber", {
+        domain: config.public.ServiceDomain,
+        httpOnly: process.env.NODE_ENV === "production",
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 60 * 60 * 24 * 7,
+      });
+      cookie.value = res.receiptRegistrationNumber;
+    },
+  );
+  window.open("/applying", "_blank");
 }
 </script>
 

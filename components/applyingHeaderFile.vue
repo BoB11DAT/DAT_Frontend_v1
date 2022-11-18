@@ -10,4 +10,5 @@
 
 <style lang="scss" scoped>
 @import "~/assets/styles/components/header/style.scss";
+@import "~/assets/styles/components/applyingHeader/style.scss";
 </style>

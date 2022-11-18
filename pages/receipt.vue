@@ -7,10 +7,12 @@
     <ReceiptView
       v-else-if="currentMenu === 'receipt'"
       :receipt-orders="receiptOrders"
+      @get-reg-hist="getRegHist"
     />
     <ReceiptHistoryView
       v-else-if="currentMenu === 'history'"
       :user-data="userData"
+      :history-orders="historyOrders"
     />
   </div>
 </template>
@@ -18,10 +20,9 @@
 <script lang="ts" setup>
 import { ref, computed, onMounted, Ref } from "vue";
 import { useCurrentMenuStore } from "~/store/currentMenu";
-import { useRegistrationHistoryStore } from "~/store/registrationHistory";
 import { getReceipts } from "~/composables/receipts";
 import { Receipt, ReceiptRegistration } from "~/assets/interfaces/receipt";
-import { getRegistrationHistorys } from "~/api/receipt";
+import { getRegistrationHistorys } from "~/composables/registrationHistory";
 import { getUserData } from "~/composables/userData";
 import { User } from "~/assets/interfaces/user";
 
@@ -35,21 +36,25 @@ const announcementOrders = [
 const receiptOrders = ref([]) as Ref<Receipt[]>;
 const historyOrders = ref({}) as Ref<ReceiptRegistration[]>;
 const currentMenuStore = useCurrentMenuStore();
-const registrationHistoryStore = useRegistrationHistoryStore();
 const currentMenu = computed(() => {
   return currentMenuStore.getCurrentMenu as string;
 });
 const userData = ref({}) as Ref<User>;
 
-// eslint-disable-next-line no-undef
-definePageMeta({
-  middleware: ["auth"],
-});
+async function getRegHist() {
+  historyOrders.value =
+    (await getRegistrationHistorys()) as ReceiptRegistration[];
+}
 
 onMounted(async () => {
   receiptOrders.value = (await getReceipts()) as Receipt[];
-  await getRegistrationHistorys();
+  await getRegHist();
   userData.value = await getUserData();
+});
+
+// eslint-disable-next-line no-undef
+definePageMeta({
+  middleware: ["auth"],
 });
 </script>
 

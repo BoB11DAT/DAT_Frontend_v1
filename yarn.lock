@@ -2283,6 +2283,11 @@ fetch-blob@^3.1.2, fetch-blob@^3.1.4:
     node-domexception "^1.0.0"
     web-streams-polyfill "^3.0.3"
 
+fiber@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/fiber/-/fiber-1.0.4.tgz#699e9c58171d685b1a369c98d7433969133328de"
+  integrity sha512-TASLDBU4gPNnv1oSMfvJtOJ0yN1k3s8KMzE7jrbCZo6xIEapMURT+Cay2xG5WBWfhay64D99G//dIlXj2PGXiA==
+
 figures@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/figures/-/figures-5.0.0.tgz#126cd055052dea699f8a54e8c9450e6ecfc44d5f"

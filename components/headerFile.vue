@@ -6,7 +6,7 @@
     <template v-for="(i, n) in headerItems" :key="n">
       <NuxtLink :to="i.path" class="header_item">{{ i.content }}</NuxtLink>
     </template>
-    <template v-if="store.accessToken">
+    <template v-if="refreshToken">
       <a class="my_page">마이 페이지</a>
       <a class="logout">로그아웃</a>
     </template>
@@ -17,10 +17,12 @@
 </template>
 
 <script setup>
+import { useCookie } from "#app";
 import headerItems from "~/assets/datas/headerItems";
 import { useAuthStore } from "~/store/auth";
 
 const store = useAuthStore();
+const refreshToken = useCookie("refreshToken");
 </script>
 
 <style lang="scss" scoped>

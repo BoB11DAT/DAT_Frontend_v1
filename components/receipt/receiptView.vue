@@ -28,7 +28,7 @@
 
 <script lang="ts" setup>
 import { PropType } from "vue";
-import { receiptRegistration, getRegistrationHistorys } from "~/api/receipt";
+import { receiptRegistration } from "~/api/receipt";
 import { Receipt } from "~/assets/interfaces/receipt";
 import { useCurrentMenuStore } from "~/store/currentMenu";
 
@@ -38,11 +38,12 @@ const props = defineProps({
     required: true,
   },
 });
+const emit = defineEmits(["getRegHist"]);
 const store = useCurrentMenuStore();
 
 async function doReceiptRegistration(data: string) {
   await receiptRegistration({ receipt_round: data });
-  await getRegistrationHistorys();
+  emit("getRegHist");
   store.setCurrentMenu("history");
 }
 </script>
