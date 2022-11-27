@@ -17,13 +17,14 @@
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { useApplyingAnswerStore } from "~/store/applyingAnswer";
+import { JUDGEAMOUNT } from "~/constants/judgeAmount";
 
 const router = useRouter();
 const emit = defineEmits(["cancelEndApplying", "endApplying"]);
 const applyingAnswerStore = useApplyingAnswerStore();
 const notWrited = computed(() => {
   let count = 0;
-  for (let i = 1; i <= 70; i++) {
+  for (let i = 1; i <= JUDGEAMOUNT; i++) {
     if (
       applyingAnswerStore.getApplyingAnswer[i]?.answer &&
       applyingAnswerStore.getApplyingAnswer[i]?.vector
@@ -31,7 +32,7 @@ const notWrited = computed(() => {
       count++;
     }
   }
-  return 70 - count;
+  return JUDGEAMOUNT - count;
 });
 </script>
 

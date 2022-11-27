@@ -12,7 +12,8 @@
             class="question_answer_item"
           >
             <p class="question">
-              Q{{ judge.applying_judge_number }}. {{ judge.judge_content }}
+              Q{{ judge.applying_judge_number.toString().padStart(2, "0") }}.
+              {{ judge.judge_content }}
             </p>
             <div
               v-if="
@@ -50,15 +51,15 @@
 
 <script lang="ts" setup>
 import { PropType, computed } from "vue";
-import { Judge } from "~/assets/interfaces/judge";
+import { Judge } from "~/interfaces/judge";
 import { useApplyingAnswerStore } from "~/store/applyingAnswer";
 import { applyingAnswer, applyingVector } from "~/api/applying";
-import { ApplyingAnswer } from "~/assets/interfaces/applying";
+import { ApplyingAnswer } from "~/interfaces/applying";
 
 // eslint-disable-next-line no-undef
 const props = defineProps({
   judges: {
-    type: Array as PropType<Judge[]>,
+    type: Object as PropType<Judge[]>,
     required: true,
   },
   categories: {
@@ -66,7 +67,7 @@ const props = defineProps({
     required: true,
   },
   applyingAnswers: {
-    type: Array as PropType<ApplyingAnswer[]>,
+    type: Object as PropType<ApplyingAnswer[]>,
     required: true,
   },
 });

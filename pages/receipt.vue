@@ -11,7 +11,6 @@
     />
     <ReceiptHistoryView
       v-else-if="currentMenu === 'history'"
-      :user-data="userData"
       :history-orders="historyOrders"
     />
   </div>
@@ -21,10 +20,8 @@
 import { ref, computed, onMounted, Ref } from "vue";
 import { useCurrentMenuStore } from "~/store/currentMenu";
 import { getReceipts } from "~/composables/receipts";
-import { Receipt, ReceiptRegistration } from "~/assets/interfaces/receipt";
+import { Receipt, ReceiptRegistration } from "~/interfaces/receipt";
 import { getRegistrationHistorys } from "~/composables/registrationHistory";
-import { getUserData } from "~/composables/userData";
-import { User } from "~/assets/interfaces/user";
 
 const announcementOrders = [
   "응시회차 확인",
@@ -34,12 +31,11 @@ const announcementOrders = [
   "접수 완료",
 ];
 const receiptOrders = ref([]) as Ref<Receipt[]>;
-const historyOrders = ref({}) as Ref<ReceiptRegistration[]>;
+const historyOrders = ref([]) as Ref<ReceiptRegistration[]>;
 const currentMenuStore = useCurrentMenuStore();
 const currentMenu = computed(() => {
   return currentMenuStore.getCurrentMenu as string;
 });
-const userData = ref({}) as Ref<User>;
 
 async function getRegHist() {
   historyOrders.value =
@@ -49,7 +45,6 @@ async function getRegHist() {
 onMounted(async () => {
   receiptOrders.value = (await getReceipts()) as Receipt[];
   await getRegHist();
-  userData.value = await getUserData();
 });
 
 // eslint-disable-next-line no-undef

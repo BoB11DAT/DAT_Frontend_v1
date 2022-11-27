@@ -15,7 +15,7 @@
 
 <script setup>
 import { ref } from "vue";
-import indexItems from "~~/assets/datas/indexItems.ts";
+import indexItems from "~/constants/indexItems.ts";
 
 // eslint-disable-next-line no-undef
 definePageMeta({

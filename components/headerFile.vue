@@ -18,7 +18,7 @@
 
 <script setup>
 import { useCookie } from "#app";
-import headerItems from "~/assets/datas/headerItems";
+import headerItems from "~/constants/headerItems";
 import { useAuthStore } from "~/store/auth";
 
 const store = useAuthStore();

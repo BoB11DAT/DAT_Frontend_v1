@@ -39,10 +39,6 @@
           color: $receipt_table_text_color;
 
           a {
-            color: $receipt_button_text_color;
-          }
-
-          button {
             padding: 4px 20px;
             font-size: 13px;
             font-weight: $font_bold;
@@ -50,6 +46,12 @@
             background-color: $receipt_button_background_color;
             border-radius: 12px;
             cursor: pointer;
+          }
+
+          .disabled {
+            color: $receipt_button_disabled_text_color;
+            background-color: $receipt_button_disabled_background_color;
+            cursor: not-allowed;
           }
         }
       }

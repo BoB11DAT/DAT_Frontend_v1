@@ -16,7 +16,7 @@
 import { onMounted, computed, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useCurrentMenuStore } from "~/store/currentMenu";
-import menuItems from "~/assets/datas/menuItems";
+import menuItems from "~/constants/menuItems";
 
 const store = useCurrentMenuStore();
 const route = useRoute();

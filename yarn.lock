@@ -1352,6 +1352,11 @@ chardet@^0.7.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
+chart.js@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-4.0.1.tgz#93d5d50ac222a5b3b6ac7488e82e1553ac031592"
+  integrity sha512-5/8/9eBivwBZK81mKvmIwTb2Pmw4D/5h1RK9fBWZLLZ8mCJ+kfYNmV9rMrGoa5Hgy2/wVDBMLSUDudul2/9ihA==
+
 "chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.1, chokidar@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
@@ -4946,6 +4951,11 @@ vue-bundle-renderer@^0.4.3:
   integrity sha512-l4mqMiMSF3wO7h4y9hrdVA97XftD457C+sbbECpZhqjzXf0MzYhdxXJc9JbMjO7fIez1M5s5wFd1YN/d1Em7sg==
   dependencies:
     ufo "^0.8.3"
+
+vue-chartjs@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-4.1.2.tgz#f899ba14f3b80660f8d2c610a015341806dfc437"
+  integrity sha512-QSggYjeFv/L4jFSBQpX8NzrAvX0B+Ha6nDgxkTG8tEXxYOOTwKI4phRLe+B4f+REnkmg7hgPY24R0cixZJyXBg==
 
 vue-demi@*:
   version "0.13.11"

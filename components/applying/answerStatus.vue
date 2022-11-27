@@ -22,7 +22,7 @@
         </div>
         <hr
           v-if="
-            ((o + 1) % 25 === 0 || o + 1 === 70) &&
+            ((o + 1) % 25 === 0 || o + 1 === JUDGEAMOUNT) &&
             judge.judge_category === n * 1
           "
         />
@@ -36,7 +36,7 @@
     <div class="flex_panel">
       <p class="text">답하지 않은 문항</p>
       <span class="circle disabled"></span>
-      <p class="number">{{ 70 - writed }}</p>
+      <p class="number">{{ JUDGEAMOUNT - writed }}</p>
     </div>
     <button @click="$emit('endApplying')">제출하기</button>
   </div>
@@ -44,13 +44,14 @@
 
 <script lang="ts" setup>
 import { PropType, computed } from "vue";
-import { Judge } from "~/assets/interfaces/judge";
+import { Judge } from "~/interfaces/judge";
 import { useApplyingAnswerStore } from "~/store/applyingAnswer";
+import { JUDGEAMOUNT } from "~/constants/judgeAmount";
 
 // eslint-disable-next-line no-undef
 const props = defineProps({
   judges: {
-    type: Array as PropType<Judge[]>,
+    type: Object as PropType<Judge[]>,
     required: true,
   },
   categories: {
@@ -62,7 +63,7 @@ const emit = defineEmits(["endApplying"]);
 const applyingAnswerStore = useApplyingAnswerStore();
 const writed = computed(() => {
   let count = 0;
-  for (let i = 1; i <= 70; i++) {
+  for (let i = 1; i <= JUDGEAMOUNT; i++) {
     if (
       applyingAnswerStore.getApplyingAnswer[i]?.answer &&
       applyingAnswerStore.getApplyingAnswer[i]?.vector

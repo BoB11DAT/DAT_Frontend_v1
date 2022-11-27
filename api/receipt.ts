@@ -4,8 +4,7 @@ import {
   ReceiptRound,
   ReceiptRegistration,
   ReceiptApply,
-} from "~/assets/interfaces/receipt";
-import { storeToRefs } from "pinia";
+} from "~/interfaces/receipt";
 
 export async function getReceipts(): Promise<Receipt[]> {
   const { data } = await getAPI("/receipt");

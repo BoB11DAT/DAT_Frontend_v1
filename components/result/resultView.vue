@@ -9,16 +9,17 @@
         <th>결과조회</th>
       </table>
       <table>
-        <tr>
-          <td>P01-2022-1</td>
-          <td>D01-2022-1-0001</td>
+        <tr v-for="(result, n) in props.results" :key="n">
+          <td>{{ result.receipt_round }}</td>
+          <td>{{ result.receipt_registration_number }}</td>
           <td>O</td>
           <td>
             <a
-              href="https://kewool.net/report-D01-2022-1-0001.pdf"
+              :href="result.result_report"
               target="_blank"
-              >결과 조회</a
-            >
+              :class="{ disabled: !result.result_report }"
+              >결과 조회
+            </a>
           </td>
         </tr>
       </table>
@@ -26,7 +27,17 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { PropType } from "vue";
+import { Result } from "~/interfaces/result";
+
+const props = defineProps({
+  results: {
+    type: Object as PropType<Result[]>,
+    required: true,
+  },
+});
+</script>
 
 <style lang="scss" scoped>
 @import "~/assets/styles/components/result/result/style.scss";

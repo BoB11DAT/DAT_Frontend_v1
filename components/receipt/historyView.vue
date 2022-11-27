@@ -67,18 +67,13 @@
 import { computed, PropType } from "vue";
 import { useRouter } from "vue-router";
 import { useCookie } from "#app";
-import { ReceiptRegistration } from "~/assets/interfaces/receipt";
-import { User } from "~/assets/interfaces/user";
-import { ReceiptRegistrationCookie } from "~/assets/interfaces/receipt";
+import { ReceiptRegistration } from "~/interfaces/receipt";
+import { ReceiptRegistrationCookie } from "~/interfaces/receipt";
 import { continueApplying } from "~/api/receipt";
 
 // eslint-disable-next-line no-undef
 const config = useRuntimeConfig();
 const props = defineProps({
-  userData: {
-    type: Object as PropType<User>,
-    required: true,
-  },
   historyOrders: {
     type: Array as PropType<ReceiptRegistration[]>,
     required: true,

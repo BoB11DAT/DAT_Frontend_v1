@@ -1,5 +1,5 @@
 import { getAPI } from "~/composables/getAPI";
-import { ApplyingAnswerParam } from "~~/assets/interfaces/applying";
+import { ApplyingAnswerParam } from "~/interfaces/applying";
 
 export async function applyingAnswer(params: ApplyingAnswerParam) {
   const { data } = await getAPI("/applying/answer", {

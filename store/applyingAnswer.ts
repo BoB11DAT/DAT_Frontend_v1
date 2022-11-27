@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ApplyingAnswerParam } from "~/assets/interfaces/applying";
+import { ApplyingAnswerParam } from "~/interfaces/applying";
 
 export const useApplyingAnswerStore = defineStore("applyingAnswer", {
   state: () => ({

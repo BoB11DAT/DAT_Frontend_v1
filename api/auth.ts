@@ -1,5 +1,5 @@
 import { getAPI } from "~/composables/getAPI";
-import { RefreshToken } from "~/assets/interfaces/auth";
+import { RefreshToken } from "~/interfaces/auth";
 
 export async function login(params: object): Promise<RefreshToken> {
   const { data } = await getAPI("/auth/login", {

@@ -31,5 +31,9 @@
     "vite-plugin-eslint": "^1.8.1",
     "vue-router": "^4.1.6",
     "yarn": "^1.22.19"
+  },
+  "dependencies": {
+    "chart.js": "^4.0.1",
+    "vue-chartjs": "^4.1.2"
   }
 }

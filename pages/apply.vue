@@ -11,13 +11,13 @@
 import { computed, onMounted, ref, Ref } from "vue";
 import { useCurrentMenuStore } from "~/store/currentMenu";
 import { getReceiptRegistrationExceptOpened } from "~/composables/registrationHistoryWithRound";
-import { ReceiptRegistration } from "~/assets/interfaces/receipt";
+import { ReceiptRegistration } from "~/interfaces/receipt";
 
 const currentMenuStore = useCurrentMenuStore();
 const currentMenu = computed(() => {
   return currentMenuStore.getCurrentMenu;
 });
-const historyOrders = ref({}) as Ref<ReceiptRegistration[]>;
+const historyOrders = ref([]) as Ref<ReceiptRegistration[]>;
 
 onMounted(async () => {
   historyOrders.value =

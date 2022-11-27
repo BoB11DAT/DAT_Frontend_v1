@@ -3,10 +3,12 @@ import eslintPlugin from "vite-plugin-eslint";
 
 // eslint-disable-next-line no-undef
 export default defineNuxtConfig({
+  build: {
+    transpile: ["chart.js"],
+  },
   modules: ["@pinia/nuxt"],
   css: ["~/assets/styles/global.scss"],
   vite: {
-    plugins: [eslintPlugin()],
     css: {
       preprocessorOptions: {
         scss: {

@@ -29,12 +29,12 @@
 <script lang="ts" setup>
 import { PropType } from "vue";
 import { receiptRegistration } from "~/api/receipt";
-import { Receipt } from "~/assets/interfaces/receipt";
+import { Receipt } from "~/interfaces/receipt";
 import { useCurrentMenuStore } from "~/store/currentMenu";
 
 const props = defineProps({
   receiptOrders: {
-    type: Array as PropType<Receipt[]>,
+    type: Object as PropType<Receipt[]>,
     required: true,
   },
 });

@@ -23,23 +23,25 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, Ref, computed } from "vue";
+import { ref, Ref, computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import vectorItems from "~/assets/datas/vectorItems";
+import { useCookie } from "#app";
+import vectorItems from "~/constants/vectorItems";
 import { getJudges } from "~/composables/judges";
 import { getApplyingAnswer } from "~/composables/applyingAnswer";
-import { Judge } from "~/assets/interfaces/judge";
-import { ApplyingAnswer } from "~/assets/interfaces/applying";
+import { Judge } from "~/interfaces/judge";
+import { ApplyingAnswer } from "~/interfaces/applying";
 import { useApplyingAnswerStore } from "~/store/applyingAnswer";
 import { applyingEnd } from "~/api/applying";
-import { getCategories } from "~~/composables/categories";
+import { getCategories } from "~/composables/categories";
+import { JUDGEAMOUNT } from "~~/constants/judgeAmount";
 
 const router = useRouter();
 const categories = getCategories();
 const applyingAnswerStore = useApplyingAnswerStore();
 const notWrited = computed(() => {
   let count = 0;
-  for (let i = 1; i <= 70; i++) {
+  for (let i = 1; i <= JUDGEAMOUNT; i++) {
     if (
       applyingAnswerStore.getApplyingAnswer[i]?.answer &&
       applyingAnswerStore.getApplyingAnswer[i]?.vector
@@ -47,11 +49,11 @@ const notWrited = computed(() => {
       count++;
     }
   }
-  return 70 - count;
+  return JUDGEAMOUNT - count;
 });
+const judges = await getJudges();
+const applyingAnswers = await getApplyingAnswer();
 
-let judges = ref([]) as Ref<Judge[]>;
-let applyingAnswers = ref([]) as Ref<ApplyingAnswer[]>;
 let popupView = ref(false) as Ref<boolean>;
 
 async function endApplying() {
@@ -61,12 +63,16 @@ async function endApplying() {
   }
   await applyingEnd();
   alert("수고하셨습니다. 제출이 완료되었습니다.");
+  const cookie = useCookie("receiptRegistrationNumber");
+  cookie.value = null;
   router.push({ path: "result" });
 }
 
 async function endApplyingforPopup() {
   await applyingEnd();
   alert("수고하셨습니다. 제출이 완료되었습니다.");
+  const cookie = useCookie("receiptRegistrationNumber");
+  cookie.value = null;
   router.push({ path: "result" });
 }
 
@@ -75,9 +81,7 @@ function cancelEndApplying() {
 }
 
 onMounted(async () => {
-  judges.value = await getJudges();
-  applyingAnswers.value = await getApplyingAnswer();
-  applyingAnswers.value.map((answer) => {
+  applyingAnswers.map((answer) => {
     applyingAnswerStore.initKey(answer.applying_judge_number);
     applyingAnswerStore.setApplyingAnswer(
       answer.applying_judge_number,

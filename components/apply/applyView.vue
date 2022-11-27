@@ -42,7 +42,9 @@
       </table>
       <hr />
       <template
-        v-if="typeof selectedRound === 'number' && registrationHistorys"
+        v-if="
+          typeof selectedRound === 'number' && props.registrationHistorys.length
+        "
       >
         <div class="agreement_box">
           <input id="agreement" v-model="agreement" type="checkbox" />
@@ -82,7 +84,7 @@ import { useCookie } from "#app";
 import {
   ReceiptRegistration,
   ReceiptRegistrationCookie,
-} from "~/assets/interfaces/receipt";
+} from "~/interfaces/receipt";
 import { applyReceipt } from "~/api/receipt";
 
 // eslint-disable-next-line no-undef

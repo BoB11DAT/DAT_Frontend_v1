@@ -7,30 +7,45 @@
   
   .button_panel {
     display: flex;
+    justify-content: space-between;
+    margin-top: 36px;
 
-    .judge_selector {
-      display: block;
-      width: 96px;
-      height: 28px;
-      margin-top: 36px;
-      margin-right: 16px;
-      line-height: 28px;
-      background-color: $solution_button_background_color;
-      color: $solution_button_text_color;
-      border-radius: 14px;
-      text-align: center;
-      font-size: 14px;
-      font-weight: $font_bold;
-      user-select: none;
-      cursor: pointer;
+    div {
+      display: flex;
+      
+      .judge_selector {
+        display: block;
+        width: 96px;
+        height: 28px;
+        margin-right: 16px;
+        line-height: 28px;
+        background-color: $solution_button_background_color;
+        color: $solution_button_text_color;
+        border-radius: 14px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: $font_bold;
+        user-select: none;
+        cursor: pointer;
+      }
+
+      input[type="radio"] {
+        appearance: none;
+
+        &:checked + .judge_selector {
+          background-color: $solution_button_selected_background_color;
+          color: $solution_button_selected_text_color;
+        }
+      }
     }
 
-    input[type="radio"] {
-      appearance: none;
+    select {
+      height: 28px;
+      font-size: 14px;
+      font-weight: $font_bold;
 
-      &:checked + .judge_selector {
-        background-color: $solution_button_selected_background_color;
-        color: $solution_button_selected_text_color;
+      option {
+        font-weight: $font_bold;
       }
     }
   }
@@ -66,11 +81,15 @@
           display: flex;
           font-size: 14px;
           font-weight: $font_bold;
-  
+
           .submit {
             margin-left: 12px;
             white-space: nowrap;
             color: $solution_judge_box_submit_text_color;
+            font-size: 14px;
+            font-weight: $font_bold;
+            line-height: 17px;
+            cursor: pointer;
           }
         }
       }
