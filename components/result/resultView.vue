@@ -14,12 +14,15 @@
           <td>{{ result.receipt_registration_number }}</td>
           <td>O</td>
           <td>
-            <a
-              :href="result.result_report"
+            <nuxtLink
+              :to="{
+                name: 'report',
+                query: { number: result.receipt_registration_number },
+              }"
               target="_blank"
-              :class="{ disabled: !result.result_report }"
+              :class="{ disabled: result.result_report }"
               >결과 조회
-            </a>
+            </nuxtLink>
           </td>
         </tr>
       </table>

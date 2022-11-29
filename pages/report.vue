@@ -115,6 +115,19 @@
         </table>
       </div>
     </div>
+    <p class="page_num">1 / 4</p>
+    <img
+      class="dummy"
+      src="https://cdn.discordapp.com/attachments/932980211098730537/1047163422871134298/image.png"
+    />
+    <img
+      class="dummy"
+      src="https://cdn.discordapp.com/attachments/932980211098730537/1047166492254412910/image.png"
+    />
+    <img
+      class="dummy"
+      src="https://cdn.discordapp.com/attachments/932980211098730537/1047166633472434276/image.png"
+    />
   </div>
 </template>
 
@@ -127,6 +140,8 @@ import { getRound } from "~/composables/receiptRound";
 import { getReportData } from "~/composables/reportData";
 import { User } from "~/interfaces/user";
 import { ReportData } from "~/interfaces/report";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 const route = useRoute();
 const userData = (await getUserData()) as User;
@@ -161,6 +176,24 @@ onMounted(() => {
   //     },
   //   },
   // });
+  html2canvas(document.querySelector(".panel")).then((canvas) => {
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF("p", "mm", "a4");
+    const width = pdf.internal.pageSize.getWidth();
+    const height = pdf.internal.pageSize.getHeight();
+    pdf.addImage(imgData, "PNG", 0, 0, width, height);
+    pdf.addPage();
+    let img = new Image();
+    img.src = "/assets/imgs/image2.png";
+    pdf.addImage(img, "PNG", 0, 0, width, height);
+    pdf.addPage();
+    img.src = "/assets/imgs/image3.png";
+    pdf.addImage(img, "PNG", 0, 0, width, height);
+    pdf.addPage();
+    img.src = "/assets/imgs/image4.png";
+    pdf.addImage(img, "PNG", 0, 0, width, height);
+    pdf.save("report.pdf");
+  });
 });
 
 // eslint-disable-next-line no-undef

@@ -30,6 +30,7 @@ th {
 td {
   background-color: $report_page_td_color;
   font-weight: $font_medium;
+  border-bottom: 1px solid $report_page_tr_border_color;
 }
 
 th, td {
@@ -37,6 +38,14 @@ th, td {
   text-align: center;
   vertical-align: middle;
   font-size: 14px;
+}
+
+tr td:first-child {
+  border-left: 1px solid $report_page_tr_border_color;
+}
+
+tr td:last-child {
+  border-right: 1px solid $report_page_tr_border_color;
 }
 
 tr:last-child td:first-child {
@@ -186,4 +195,15 @@ tr:last-child td:last-child {
       line-height: 25px;
     }
   }
+}
+
+.page_num {
+  font-size: 19px;
+  font-weight: $font_bold;
+  margin-top: 40px;
+}
+
+.dummy {
+  width: 21cm;
+  height: 29.7cm;
 }

@@ -80,16 +80,19 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, PropType } from "vue";
+import { useRouter } from "vue-router";
 import { useCookie } from "#app";
 import {
   ReceiptRegistration,
   ReceiptRegistrationCookie,
 } from "~/interfaces/receipt";
 import { applyReceipt } from "~/api/receipt";
+import { useCurrentMenuStore } from "~/store/currentMenu";
 
 // eslint-disable-next-line no-undef
 const config = useRuntimeConfig();
-
+const currentMenuStore = useCurrentMenuStore();
+const route = useRouter();
 const props = defineProps({
   registrationHistorys: {
     type: Array as PropType<ReceiptRegistration[]>,
@@ -101,23 +104,20 @@ let selectedRound = ref(0);
 let agreement = ref(false);
 
 async function apply() {
-  if (typeof selectedRound.value === "number") {
-    const receipt_registration_number =
-      props.registrationHistorys[selectedRound.value]
-        .receipt_registration_number;
-    applyReceipt({ receipt_registration_number }).then(
-      (res: ReceiptRegistrationCookie) => {
-        const cookie = useCookie("receiptRegistrationNumber", {
-          domain: config.public.ServiceDomain,
-          httpOnly: process.env.NODE_ENV === "production",
-          secure: process.env.NODE_ENV === "production",
-          maxAge: 60 * 60 * 24 * 7,
-        });
-        cookie.value = res.receiptRegistrationNumber;
-      },
-    );
-    window.open("/applying", "_blank");
-  }
+  const receipt_registration_number =
+    props.registrationHistorys[selectedRound.value].receipt_registration_number;
+  applyReceipt({ receipt_registration_number }).then(
+    (res: ReceiptRegistrationCookie) => {
+      const cookie = useCookie("receiptRegistrationNumber", {
+        domain: config.public.ServiceDomain,
+        httpOnly: process.env.NODE_ENV === "production",
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 60 * 60 * 24 * 7,
+      });
+      cookie.value = res.receiptRegistrationNumber;
+    },
+  );
+  route.push("/applynotice");
 }
 </script>
 

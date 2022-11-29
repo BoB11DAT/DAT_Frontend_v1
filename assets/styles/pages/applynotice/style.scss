@@ -1,0 +1,91 @@
+@import "variables.scss";
+
+.notice_view {
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
+  width: 1070px;
+  height: 720px;
+  background-color: $applynotice_view_background_color;
+  border-radius: 16px;
+  align-items: center;
+
+  h1 {
+    margin-top: 100px;
+    font-size: 32px;
+    font-weight: $font_bold;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+
+    p {
+      font-size: 24px;
+      font-weight: $font_medium;
+    }
+  }
+
+  .download_panel {
+    margin-top: 90px;
+    padding: 16px 32px 24px;
+    font-size: 16px;
+    font-weight: $font_bold;
+    border: 1px solid $applynotice_download_panel_border_color;
+    border-radius: 8px;
+
+    a {
+      margin: 0 auto 20px;
+      display: block;
+      background-color: $applynotice_download_button_background_color;
+      width: 200px;
+      height: 48px;
+      border-radius: 24px;
+      text-align: center;
+      line-height: 48px;
+    }
+
+    p {
+      margin-top: 10px;
+    }
+  }
+}
+
+.next, .before {
+  margin-top: 36px;
+  width: 200px;
+  height: 38px;
+  border-radius: 36px;
+  font-size: 16px;
+  font-weight: $font_bold;
+  text-align: center;
+  line-height: 38px;
+  cursor: pointer;
+}
+
+.next {
+  background-color: $applynotice_next_button_background_color;
+  color: $applynotice_next_button_text_color;
+}
+
+.before {
+  background-color: $applynotice_before_button_background_color;
+  color: $applynotice_before_button_text_color;
+}
+
+img {
+  width: 1100px;
+}
+
+.notice_answer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .button_panel {
+    display: flex;
+    gap: 32px;
+  }
+}

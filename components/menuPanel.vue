@@ -36,7 +36,6 @@ watch(
     store.setCurrentMenu(menuItem.value?.contents[0].param);
   },
 );
-// eslint-disable-next-line vue/return-in-computed-property
 </script>
 
 <style lang="scss" scoped>

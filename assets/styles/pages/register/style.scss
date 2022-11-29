@@ -1,0 +1,55 @@
+@import "variables.scss";
+
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  display: block;
+  background-color: #F5F6F7;
+  width: 300px;
+  height: 32px;
+  font-size: 20px;
+  padding-left: 8px;
+  border-radius: 8px;
+  margin: 18px auto;
+}
+
+.logo {
+  margin: 30px auto;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+
+  img {
+    width: 105px;
+    height: 105px;
+  }
+
+  p {
+    font-size: 48px;
+    font-weight: $font_bold;
+    line-height: 105px;
+    color: $login_panel_logo_text_color;
+  }
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  width: 180px;
+  height: 32px;
+  background-color: $login_panel_button_background_color;
+  color: $login_panel_button_text_color;
+  font-size: 20px;
+  font-weight: $font_bold;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: $font_bold;
+}

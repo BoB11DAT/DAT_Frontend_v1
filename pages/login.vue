@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <h1>Login</h1>
-    <form @submit.prevent="userLogin">
-      <input v-model="loginDatas.user_id" type="text" placeholder="Username" />
-      <input
-        v-model="loginDatas.user_pw"
-        type="password"
-        placeholder="Password"
-      />
-      <button type="submit" @click="userLogin()">Login</button>
+  <div class="login_panel">
+    <h1>로그인</h1>
+    <div class="logo">
+      <img src="~/assets/imgs/logo.svg" />
+      <p>DAT</p>
+    </div>
+    <form class="login_form" @submit.prevent="userLogin">
+      <input v-model="loginDatas.user_id" type="text" placeholder="ID" />
+      <input v-model="loginDatas.user_pw" type="password" placeholder="PW " />
+      <button type="submit">로그인</button>
     </form>
   </div>
 </template>
@@ -22,8 +22,8 @@ import { login } from "~/api/auth";
 const config = useRuntimeConfig();
 
 let loginDatas = ref({
-  user_id: "guest",
-  user_pw: "guest",
+  user_id: "",
+  user_pw: "",
 });
 
 async function userLogin() {
@@ -38,6 +38,13 @@ async function userLogin() {
     location.href = "/";
   });
 }
+
+// eslint-disable-next-line no-undef
+definePageMeta({
+  layout: "login-page",
+});
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@import "~/assets/styles/pages/login/style.scss";
+</style>
