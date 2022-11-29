@@ -40,9 +40,7 @@
             <div class="judge_box">
               <div class="contents_panel">
                 <p>
-                  Q{{
-                    judge.applying_judge_number.toString().padStart(2, "0")
-                  }}.
+                  Q{{ judge.receipt_judge_number.toString().padStart(2, "0") }}.
                   {{ judge.judge_content }}
                 </p>
                 <div class="url_panel">

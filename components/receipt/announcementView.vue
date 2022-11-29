@@ -10,7 +10,7 @@
           </div>
           <img
             v-if="n !== props.announcementOrders.length - 1"
-            src="~/assets/img/receipt_arrow.svg"
+            src="~/assets/imgs/receipt_arrow.svg"
           />
         </template>
       </div>

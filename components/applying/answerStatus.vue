@@ -6,7 +6,7 @@
       <template v-for="(judge, o) in props.judges" :key="o">
         <div
           v-if="
-            !(judge.applying_judge_number % 5) && judge.judge_category === n * 1
+            !(judge.receipt_judge_number % 5) && judge.judge_category === n * 1
           "
           class="number_line"
         >
@@ -14,10 +14,10 @@
             v-for="i in 5"
             :key="i"
             :class="{
-              disabled: !checkWrited(judge.applying_judge_number + i - 5),
+              disabled: !checkWrited(judge.receipt_judge_number + i - 5),
             }"
           >
-            {{ judge.applying_judge_number + i - 5 }}
+            {{ judge.receipt_judge_number + i - 5 }}
           </p>
         </div>
         <hr

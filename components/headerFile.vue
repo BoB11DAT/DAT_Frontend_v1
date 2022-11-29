@@ -1,7 +1,7 @@
 <template>
   <header>
     <NuxtLink :to="{ path: '/' }" class="logo"
-      ><img src="~/assets/img/logo.svg"
+      ><img src="~/assets/imgs/logo.svg"
     /></NuxtLink>
     <template v-for="(i, n) in headerItems" :key="n">
       <NuxtLink :to="i.path" class="header_item">{{ i.content }}</NuxtLink>

@@ -1,7 +1,7 @@
 <template>
   <header>
     <NuxtLink :to="{ path: '/' }" class="logo"
-      ><img src="~/assets/img/logo.svg"
+      ><img src="~/assets/imgs/logo.svg"
     /></NuxtLink>
   </header>
 </template>

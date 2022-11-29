@@ -6,7 +6,7 @@
         @end-applying="endApplyingforPopup"
       />
     </template>
-    <div class="applying_panel">
+    <div v-if="judges" class="applying_panel">
       <ApplyingVectorList :vectors="vectorItems" />
       <ApplyingJudges
         :judges="judges"
@@ -29,7 +29,6 @@ import { useCookie } from "#app";
 import vectorItems from "~/constants/vectorItems";
 import { getJudges } from "~/composables/judges";
 import { getApplyingAnswer } from "~/composables/applyingAnswer";
-import { Judge } from "~/interfaces/judge";
 import { ApplyingAnswer } from "~/interfaces/applying";
 import { useApplyingAnswerStore } from "~/store/applyingAnswer";
 import { applyingEnd } from "~/api/applying";
@@ -81,15 +80,15 @@ function cancelEndApplying() {
 }
 
 onMounted(async () => {
-  applyingAnswers.map((answer) => {
-    applyingAnswerStore.initKey(answer.applying_judge_number);
+  applyingAnswers.map((answer: ApplyingAnswer) => {
+    applyingAnswerStore.initKey(answer.receipt_judge_number);
     applyingAnswerStore.setApplyingAnswer(
-      answer.applying_judge_number,
+      answer.receipt_judge_number,
       answer.applying_answer,
       "answer",
     );
     applyingAnswerStore.setApplyingAnswer(
-      answer.applying_judge_number,
+      answer.receipt_judge_number,
       answer.applying_answer_vector,
       "vector",
     );

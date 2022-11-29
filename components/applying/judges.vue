@@ -12,34 +12,32 @@
             class="question_answer_item"
           >
             <p class="question">
-              Q{{ judge.applying_judge_number.toString().padStart(2, "0") }}.
+              Q{{ judge.receipt_judge_number.toString().padStart(2, "0") }}.
               {{ judge.judge_content }}
             </p>
             <div
               v-if="
-                applyingAnswerStore.applyingAnswer[judge.applying_judge_number]
+                applyingAnswerStore.applyingAnswer[judge.receipt_judge_number]
               "
               class="answer_panel"
             >
               <input
                 v-model="
-                  applyingAnswerStore.applyingAnswer[
-                    judge.applying_judge_number
-                  ].vector
+                  applyingAnswerStore.applyingAnswer[judge.receipt_judge_number]
+                    .vector
                 "
                 class="answer_vector"
                 type="text"
-                @change="writeAnswerVector(judge.applying_judge_number, $event)"
+                @change="writeAnswerVector(judge.receipt_judge_number, $event)"
               />
               <input
                 v-model="
-                  applyingAnswerStore.applyingAnswer[
-                    judge.applying_judge_number
-                  ].answer
+                  applyingAnswerStore.applyingAnswer[judge.receipt_judge_number]
+                    .answer
                 "
                 class="answer_text"
                 type="text"
-                @change="writeAnswer(judge.applying_judge_number, $event)"
+                @change="writeAnswer(judge.receipt_judge_number, $event)"
               />
             </div>
           </div>
@@ -75,14 +73,14 @@ const applyingAnswerStore = useApplyingAnswerStore();
 
 async function writeAnswer(key: number, event: any) {
   await applyingAnswer({
-    applying_judge_number: key,
+    receipt_judge_number: key,
     applying_answer: event.target.value,
   });
 }
 
 async function writeAnswerVector(key: number, event: any) {
   await applyingVector({
-    applying_judge_number: key,
+    receipt_judge_number: key,
     applying_answer_vector: event.target.value,
   });
 }
