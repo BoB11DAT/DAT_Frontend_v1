@@ -59,9 +59,9 @@
             <th>총 점수</th>
           </tr>
           <tr>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
+            <td>{{ reportScore.winscore * 2 }}</td>
+            <td>{{ reportScore.appscore * 2 }}</td>
+            <td>{{ reportScore.score * 2 }}</td>
           </tr>
         </table>
       </div>
@@ -137,7 +137,7 @@ import { onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 import { getUserData } from "~/composables/userData";
 import { getRound } from "~/composables/receiptRound";
-import { getReportData } from "~/composables/reportData";
+import { getReportData, getReportScore } from "~/composables/reportData";
 import { User } from "~/interfaces/user";
 import { ReportData } from "~/interfaces/report";
 import html2canvas from "html2canvas";
@@ -152,6 +152,7 @@ const receiptRound = await getRound(route.query.number as string);
 const reportData: ReportData[] = await getReportData(
   route.query.number as string,
 );
+const reportScore = await getReportScore(route.query.number as string);
 const judgeDifficult = ["하", "중", "상"];
 
 onMounted(() => {
