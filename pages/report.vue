@@ -40,13 +40,15 @@
             <th>난이도</th>
             <th>정답률</th>
           </tr>
-          <template v-for="(i, n) in 36" :key="n">
+          <template v-for="(i, n) in 37" :key="n">
             <tr>
-              <td>{{ reportData[i]?.receipt_judge_number }}</td>
-              <td>{{ reportData[i]?.result_answer_correct ? "O" : "X" }}</td>
-              <td>{{ reportData[i]?.judge_type ? "싱글" : "멀티" }}</td>
-              <td>{{ judgeDifficult[reportData[i]?.judge_difficulty] }}</td>
-              <td>{{ reportData[i]?.report_correct_answer_rate }}%</td>
+              <td>{{ reportData[i - 1]?.receipt_judge_number }}</td>
+              <td>
+                {{ reportData[i - 1]?.result_answer_correct ? "O" : "X" }}
+              </td>
+              <td>{{ reportData[i - 1]?.judge_type ? "싱글" : "멀티" }}</td>
+              <td>{{ judgeDifficult[reportData[i - 1]?.judge_difficulty] }}</td>
+              <td>{{ reportData[i - 1]?.report_correct_answer_rate }}%</td>
             </tr>
           </template>
         </table>
