@@ -33,9 +33,7 @@
     "yarn": "^1.22.19"
   },
   "dependencies": {
-    "chart.js": "^4.0.1",
     "html2canvas": "^1.4.1",
-    "jspdf": "^2.5.1",
-    "vue-chartjs": "4.1.1"
+    "jspdf": "^2.5.1"
   }
 }

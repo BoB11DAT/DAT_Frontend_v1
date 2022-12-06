@@ -7,14 +7,6 @@
 .main {
   display: inline-flex;
   align-items:flex-start;
-
-  .panel {
-    display: flex;
-    flex-direction: column;
-    width: 21cm;
-    height: 29.7cm;
-    background-color: $main_panel_background_color;
-  }
 }
 
 @page {

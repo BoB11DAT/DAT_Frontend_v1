@@ -46,9 +46,14 @@ let registerDatas = ref({
   user_birth: Date,
 });
 
-function userRegister() {
-  register(registerDatas.value);
-  location.href = "login";
+async function userRegister() {
+  try {
+    await register(registerDatas.value);
+    location.href = "login";
+  } catch (e) {
+    alert("error");
+    return;
+  }
 }
 
 // eslint-disable-next-line no-undef

@@ -24,14 +24,22 @@ import headerItems from "~/constants/headerItems";
 import { useAuthStore } from "~/store/auth";
 import { logout } from "~/api/auth";
 
+// eslint-disable-next-line no-undef
+const config = useRuntimeConfig();
+
 const store = useAuthStore();
-const refreshToken = useCookie("refreshToken");
+const refreshToken = useCookie("refreshToken", {
+  domain: config.public.ServiceDomain,
+  httpOnly: process.env.NODE_ENV === "production",
+  secure: process.env.NODE_ENV === "production",
+  maxAge: 60 * 60 * 24 * 7,
+});
 const router = useRouter();
 
 function logoutAction() {
   logout();
   store.setAccessToken("");
-  refreshToken.value = null;
+  refreshToken.value = "";
   router.push("/");
 }
 </script>

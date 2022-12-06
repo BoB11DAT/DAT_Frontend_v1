@@ -104,6 +104,7 @@ let selectedRound = ref(0);
 let agreement = ref(false);
 
 async function apply() {
+  if (!agreement.value) return;
   const receipt_registration_number =
     props.registrationHistorys[selectedRound.value].receipt_registration_number;
   applyReceipt({ receipt_registration_number }).then(

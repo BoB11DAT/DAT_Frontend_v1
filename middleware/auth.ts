@@ -5,7 +5,7 @@ import { getAccessToken } from "~~/composables/accessToken";
 export default defineNuxtRouteMiddleware(async () => {
   const authStore = useAuthStore();
   const refreshToken = useCookie("refreshToken");
-  if (!refreshToken.value) {
+  if (!refreshToken.value || refreshToken.value === "") {
     return navigateTo("/login");
   }
   if (!authStore.getAccessToken) {

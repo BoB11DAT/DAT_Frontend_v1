@@ -67,6 +67,11 @@ tr:last-child td:last-child {
   flex-direction: column;
   padding: 18px 32px 0;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 21cm;
+  height: 29.7cm;
+  background-color: white;
 
   .logo {
     display: flex;
@@ -183,24 +188,180 @@ tr:last-child td:last-child {
         }
       }
     }
-    .scorecard_category {
-      width: 167px;
-      height: 25px;
-      margin-top: 17px;
-      border-radius: 4px;
-      background-color: $report_page_category_color;
-      text-align: center;
-      font-size: 16px;
+  }
+  
+  .title_panel2 {
+    display: flex;
+    margin-top: 12px;
+
+    h1 {
+      font-size: 32px;
       font-weight: $font_bold;
-      line-height: 25px;
+      border-left: solid 7px #015FFF;
+      padding-left: 8px;
     }
   }
+
+}
+
+.report_view2 {
+  align-items: unset;
+
+  .result_panel2 {
+    display: grid;
+    column-gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 13px;
+
+    .graph {
+      display: flex;
+      flex-direction: column;
+
+      &:first-child {
+        .graph_top {
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+        }
+      }
+
+      &:last-child {
+        .graph_data_panel {
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+          border-bottom: 0.5px solid #C9C9C9;
+        }
+      }
+      
+      .graph_top {
+        display: flex;
+        height: 22px;
+        background-color: #EBEBEB;
+        border: 0.5px solid #C9C9C9;
+        align-items: center;
+  
+        .vector_num {
+          width: 29px;
+          border-right: 0.5px solid #C9C9C9;
+          font-size: 14px;
+          font-weight: $font_bold;
+          text-align: center;
+        }
+  
+        .explanation {
+          margin-left: 11px;
+          font-size: 13px;
+          font-weight: $font_semi_bold;
+        }
+  
+        .vector_box {
+          margin-left: 8px;
+          padding: 0 7px;
+          border-radius: 2px;
+          background-color: #015FFF;
+          font-size: 12px;
+          color: white;
+          font-weight: $font_medium;
+        }
+      }
+      
+      .graph_data_panel {
+        display: flex;
+        height: 51px;
+        background-color: #FAFAFA;
+        border-left: 0.5px solid #C9C9C9;
+        border-right: 0.5px solid #C9C9C9;
+  
+        .vector_panel {
+          width: 50%;
+          height: 100%;
+          padding-left: 20px;
+          border-right: 0.5px solid #C9C9C9;
+  
+          .vector {
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+  
+            .label {
+              width: 7px;
+              height: 7px;
+            }
+  
+            p {
+              margin-left: 4px;
+              font-size: 12px;
+              font-weight: $font_medium;
+            }
+          }
+        }
+      
+        .graph_panel {
+          display: flex;
+          flex-direction: column;
+
+          div {
+            margin-top: 3px;
+            display: flex;
+            align-items: center;
+
+            .graph_bar {
+              width: 125px;
+              height: 7px;
+            }
+  
+            p {
+              margin-left: 9px;
+              font-size: 11px;
+              font-weight: $font_medium;
+            }
+          }
+        }
+      }
+    }
+
+    .graph_grid_1 {
+      grid-column: 1 / 2;
+    }
+
+    .graph_grid_2 {
+      grid-column: 2 / 3;
+    }
+  }
+
+  .page_num {
+    margin: 0 auto;
+    margin-top: 15px;
+  }
+}
+
+.scorecard_category {
+  width: 167px;
+  height: 25px;
+  margin-top: 17px;
+  border-radius: 4px;
+  background-color: $report_page_category_color;
+  text-align: center;
+  font-size: 16px;
+  font-weight: $font_bold;
+  line-height: 25px;
 }
 
 .page_num {
   font-size: 19px;
   font-weight: $font_bold;
-  margin-top: 40px;
+  margin-top: 50px;
+}
+    
+.label_color0 {
+  background-color: #0099DF;
+}
+
+.label_color1 {
+  background-color: #4472C4;
+}
+
+.label_color2 {
+  background-color: #00BCD7;
 }
 
 .dummy {
