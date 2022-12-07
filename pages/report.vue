@@ -134,6 +134,17 @@
               <div class="graph_top">
                 <div class="vector_num">{{ i }}</div>
                 <p class="explanation">나의 풀이</p>
+                <div
+                  class="correct_box"
+                  :class="{
+                    incorrect: !reportData[i - 1].result_answer_correct,
+                  }"
+                >
+                  <span v-if="reportData[i - 1].result_answer_correct"
+                    >정답</span
+                  >
+                  <span v-else>오답</span>
+                </div>
                 <div class="vector_box">
                   {{ vectorItems[userVectors[i]?.userVector - 1] }}
                 </div>
@@ -173,6 +184,17 @@
               <div class="graph_top">
                 <div class="vector_num">{{ i + 13 }}</div>
                 <p class="explanation">나의 풀이</p>
+                <div
+                  class="correct_box"
+                  :class="{
+                    incorrect: !reportData[i + 12].result_answer_correct,
+                  }"
+                >
+                  <span v-if="reportData[i + 12].result_answer_correct"
+                    >정답</span
+                  >
+                  <span v-else>오답</span>
+                </div>
                 <div class="vector_box">
                   {{ vectorItems[userVectors[i + 13]?.userVector - 1] }}
                 </div>
@@ -227,6 +249,17 @@
               <div class="graph_top">
                 <div class="vector_num">{{ i + 26 }}</div>
                 <p class="explanation">나의 풀이</p>
+                <div
+                  class="correct_box"
+                  :class="{
+                    incorrect: !reportData[i + 25].result_answer_correct,
+                  }"
+                >
+                  <span v-if="reportData[i + 25].result_answer_correct"
+                    >정답</span
+                  >
+                  <span v-else>오답</span>
+                </div>
                 <div class="vector_box">
                   {{ vectorItems[userVectors[i + 26]?.userVector - 1] }}
                 </div>
@@ -272,6 +305,17 @@
               <div class="graph_top">
                 <div class="vector_num">{{ i + 39 }}</div>
                 <p class="explanation">나의 풀이</p>
+                <div
+                  class="correct_box"
+                  :class="{
+                    incorrect: !reportData[i + 38].result_answer_correct,
+                  }"
+                >
+                  <span v-if="reportData[i + 38].result_answer_correct"
+                    >정답</span
+                  >
+                  <span v-else>오답</span>
+                </div>
                 <div class="vector_box">
                   {{ vectorItems[userVectors[i + 39]?.userVector - 1] }}
                 </div>
@@ -326,6 +370,17 @@
               <div class="graph_top">
                 <div class="vector_num">{{ i + 50 }}</div>
                 <p class="explanation">나의 풀이</p>
+                <div
+                  class="correct_box"
+                  :class="{
+                    incorrect: !reportData[i + 49].result_answer_correct,
+                  }"
+                >
+                  <span v-if="reportData[i + 49].result_answer_correct"
+                    >정답</span
+                  >
+                  <span v-else>오답</span>
+                </div>
                 <div class="vector_box">
                   {{ vectorItems[userVectors[i + 50]?.userVector - 1] }}
                 </div>
@@ -371,6 +426,17 @@
               <div class="graph_top">
                 <div class="vector_num">{{ i + 63 }}</div>
                 <p class="explanation">나의 풀이</p>
+                <div
+                  class="correct_box"
+                  :class="{
+                    incorrect: !reportData[i + 62].result_answer_correct,
+                  }"
+                >
+                  <span v-if="reportData[i + 62].result_answer_correct"
+                    >정답</span
+                  >
+                  <span v-else>오답</span>
+                </div>
                 <div class="vector_box">
                   {{ vectorItems[userVectors[i + 63]?.userVector - 1] }}
                 </div>

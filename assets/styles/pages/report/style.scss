@@ -253,14 +253,25 @@ tr:last-child td:last-child {
           font-weight: $font_semi_bold;
         }
   
-        .vector_box {
+        .correct_box, .vector_box {
           margin-left: 8px;
           padding: 0 7px;
           border-radius: 2px;
-          background-color: #015FFF;
           font-size: 12px;
           color: white;
           font-weight: $font_medium;
+        }
+
+        .correct_box {
+          background-color: #015FFF;
+        }
+
+        .incorrect {
+          background-color: #DD4848;
+        }
+
+        .vector_box {
+          background-color: #163C7D;
         }
       }
       
