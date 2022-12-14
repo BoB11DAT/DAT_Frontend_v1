@@ -1,0 +1,104 @@
+@import "_variables.scss";
+
+.objection_view {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .objection_title_panel {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      padding: 4px 20px;
+      font-size: 13px;
+      font-weight: $font_bold;
+      color: $objection_button_text_color;
+      background-color: $objection_button_background_color;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+  }
+
+  .objection_panel {
+    margin-top: 26px;
+    flex: 1;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      &:first-child {
+        border-bottom: 1px solid $objection_table_border_color;
+      }
+
+      &:last-child {
+        margin-top: 10px;
+      }
+
+      th {
+        height: 26px;
+        font-size: 14px;
+        color: $objection_table_header_color;
+
+        &:nth-child(1) {
+          width: 5%;
+        }
+
+        &:nth-child(2) {
+          width: 60%;
+        }
+
+        &:nth-child(3) {
+          width: 15%;
+          text-align: center;
+        }
+
+        &:nth-child(4) {
+          width: 10%;
+          text-align: center;
+        }
+      }
+
+      tr {
+        cursor: pointer;
+
+        td {
+          height: 32px;
+          font-size: 14px;
+          font-weight: $font_bold;
+          color: $objection_table_text_color;
+
+          &:nth-child(1) {
+            width: 5%;
+          }
+  
+          &:nth-child(2) {
+            width: 60%;
+          }
+  
+          &:nth-child(3) {
+            width: 15%;
+            text-align: center;
+          }
+  
+          &:nth-child(4) {
+            width: 10%;
+            text-align: center;
+
+            p {
+              display: inline;
+              padding: 4px 20px;
+              text-align: center;
+              font-size: 13px;
+              font-weight: $font_bold;
+              color: $objection_text_color;
+              background-color: $objection_background_color;
+              border-radius: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

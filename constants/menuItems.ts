@@ -38,4 +38,25 @@ export default {
       },
     ],
   },
+  mypage: {
+    title: "마이 페이지",
+    contents: [
+      {
+        content: "회원 정보 수정",
+        param: "info",
+      },
+      {
+        content: "1:1 문의",
+        param: "inquiry",
+      },
+      {
+        content: "이의제기",
+        param: "objection",
+      },
+      {
+        content: "회원탈퇴",
+        param: "withdrawal",
+      },
+    ],
+  },
 };

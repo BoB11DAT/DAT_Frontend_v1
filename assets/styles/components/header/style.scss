@@ -15,11 +15,12 @@ header {
   border-bottom: 1px solid $header_border_color;
   font-size: 16px;
   z-index: 2;
+  white-space: nowrap;
 
   .logo {
     width: 42px;
     height: 42px;
-    margin-right: 220px;
+    margin-right: 100px;
   }
   
   .header_item {
@@ -27,6 +28,8 @@ header {
     display: block;
     padding: 22.5px 31px;
     font-weight: $font_medium;
+    display: flex;
+    align-items: center;
   
     &:hover {
       background-color: #DDDDDD;

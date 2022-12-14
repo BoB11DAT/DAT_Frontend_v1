@@ -1,0 +1,95 @@
+@import '_variables.scss';
+
+.create_objection_view {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .create_objection_title_panel {
+    display: flex;
+    justify-content: space-between;
+
+    select {
+      height: 28px;
+      font-size: 14px;
+      font-weight: $font_bold;
+
+      option {
+        font-weight: $font_bold;
+      }
+    }
+  }
+
+  .create_objection_panel {
+    margin-top: 26px;
+    flex: 1;
+
+    .create_objection_panel_head {
+      display: flex;
+      justify-content: space-between;
+
+      .create_objection_title, .create_objection_number {
+        display: flex;
+        align-items: center;
+
+        p {
+          font-size: 18px;
+          font-weight: $font_medium;
+          margin-right: 10px;
+        }
+
+        input {
+          height: 30px;
+          padding-left: 6px;
+          background-color: $create_objection_input_background_color;
+          font-size: 16px;
+          font-weight: $font_medium;
+          border-radius: 8px;
+        }
+      }
+
+      .create_objection_title {
+        input {
+          width: 45vw;
+        }
+      }
+
+      .create_objection_number {
+        input {
+          width: 3vw;
+        }
+      }
+    }
+
+    .content_text {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: $font_medium;
+      margin-right: 10px;
+    }
+
+    .content {
+      margin-top: 10px;
+      width: 100%;
+      height: 35vh;
+      padding: 10px;
+      background-color: $create_objection_input_background_color;
+      font-size: 16px;
+      font-weight: $font_medium;
+      border-radius: 8px;
+      resize: none;
+    }
+
+    .content + button {
+      margin-top: 20px;
+      padding: 6px 30px;
+      float: right;
+      font-size: 16px;
+      font-weight: $font_bold;
+      color: $create_objection_button_text_color;
+      background-color: $create_objection_button_background_color;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+  }
+}

@@ -28,7 +28,8 @@ const currentMenu = computed(() => {
 });
 
 onMounted(() => {
-  store.setCurrentMenu(menuItem.value?.contents[0].param);
+  if (!currentMenu.value)
+    store.setCurrentMenu(menuItem.value?.contents[0].param);
 });
 watch(
   () => route.name,

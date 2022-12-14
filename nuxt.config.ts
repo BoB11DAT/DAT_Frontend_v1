@@ -3,7 +3,6 @@ import eslintPlugin from "vite-plugin-eslint";
 
 // eslint-disable-next-line no-undef
 export default defineNuxtConfig({
-  target: "static",
   ssr: false,
   modules: ["@pinia/nuxt"],
   css: ["~/assets/styles/global.scss"],

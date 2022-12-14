@@ -6,8 +6,14 @@
     <template v-for="(i, n) in headerItems" :key="n">
       <NuxtLink :to="i.path" class="header_item">{{ i.content }}</NuxtLink>
     </template>
+    <a href="https://pdf.datg.xyz" target="_blank" class="header_item">
+      절차기반<br />시나리오
+    </a>
+    <a href="https://doc.datg.xyz" target="_blank" class="header_item">
+      DocDoc
+    </a>
     <template v-if="refreshToken">
-      <a class="my_page">마이 페이지</a>
+      <NuxtLink :to="'mypage'" class="my_page">마이 페이지</NuxtLink>
       <button class="logout" @click="logoutAction()">로그아웃</button>
     </template>
     <template v-else>

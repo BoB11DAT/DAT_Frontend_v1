@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const useCurrentMenuStore = defineStore("currentMenu", {
   state: () => ({
-    currentMenu: null as string,
+    currentMenu: "" as string,
   }),
   getters: {
     getCurrentMenu: (state) => state.currentMenu,
