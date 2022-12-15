@@ -71,6 +71,12 @@ button {
   cursor: pointer;
 }
 
+.disabled {
+  background-color: $login_panel_button_disabled_background_color;
+  color: $login_panel_button_disabled_text_color;
+  cursor: not-allowed;
+}
+
 h1 {
   font-size: 20px;
   font-weight: $font_bold;

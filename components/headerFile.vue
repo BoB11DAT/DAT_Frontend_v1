@@ -4,7 +4,7 @@
       ><img src="~/assets/imgs/logo.svg"
     /></NuxtLink>
     <template v-for="(i, n) in headerItems" :key="n">
-      <NuxtLink :to="i.path" class="header_item">{{ i.content }}</NuxtLink>
+      <NuxtLink :to="{ path: i.path }" class="header_item">{{ i.content }}</NuxtLink>
     </template>
     <template v-if="store.getAccessToken">
       <NuxtLink :to="'mypage'" class="my_page">마이 페이지</NuxtLink>

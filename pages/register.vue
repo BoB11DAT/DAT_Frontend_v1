@@ -25,10 +25,10 @@
       />
       <input v-model="registerDatas.user_birth" type="date" />
       <label>
-        <input type="checkbox" />
+        <input v-model="serviceCheck" type="checkbox" />
         <span>서비스 이용약관에 동의합니다.</span>
       </label>
-      <button type="submit">회원가입</button>
+      <button type="submit" :class="{ disabled: !serviceCheck }">회원가입</button>
     </form>
   </div>
 </template>
@@ -49,14 +49,17 @@ let registerDatas = ref({
   user_tell: "",
   user_birth: Date,
 });
+let serviceCheck = ref(false);
 
 async function userRegister() {
-  try {
-    await register(registerDatas.value);
-    location.href = "login";
-  } catch (e) {
-    alert("error");
-    return;
+  if (serviceCheck.value) {
+    try {
+      await register(registerDatas.value);
+      location.href = "login";
+    } catch (e) {
+      alert("error");
+      return;
+    }
   }
 }
 
