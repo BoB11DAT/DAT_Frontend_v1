@@ -107,17 +107,7 @@ async function apply() {
   if (!agreement.value) return;
   const receipt_registration_number =
     props.registrationHistorys[selectedRound.value].receipt_registration_number;
-  applyReceipt({ receipt_registration_number }).then(
-    (res: ReceiptRegistrationCookie) => {
-      const cookie = useCookie("receiptRegistrationNumber", {
-        domain: config.public.ServiceDomain,
-        httpOnly: process.env.NODE_ENV === "production",
-        secure: process.env.NODE_ENV === "production",
-        maxAge: 60 * 60 * 24 * 7,
-      });
-      cookie.value = res.receiptRegistrationNumber;
-    },
-  );
+  await applyReceipt({ receipt_registration_number });
   route.push("/applynotice");
 }
 </script>

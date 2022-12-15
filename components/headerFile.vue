@@ -12,7 +12,7 @@
     <a href="https://doc.datg.xyz" target="_blank" class="header_item">
       DocDoc
     </a>
-    <template v-if="refreshToken">
+    <template v-if="store.getAccessToken">
       <NuxtLink :to="'mypage'" class="my_page">마이 페이지</NuxtLink>
       <button class="logout" @click="logoutAction()">로그아웃</button>
     </template>
@@ -34,18 +34,11 @@ import { logout } from "~/api/auth";
 const config = useRuntimeConfig();
 
 const store = useAuthStore();
-const refreshToken = useCookie("refreshToken", {
-  domain: config.public.ServiceDomain,
-  httpOnly: process.env.NODE_ENV === "production",
-  secure: process.env.NODE_ENV === "production",
-  maxAge: 60 * 60 * 24 * 7,
-});
 const router = useRouter();
 
 function logoutAction() {
   logout();
   store.setAccessToken("");
-  refreshToken.value = "";
   router.push("/");
 }
 </script>

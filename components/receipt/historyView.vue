@@ -89,17 +89,7 @@ function checkEnd(historyOrder) {
 }
 
 async function apply(receipt_registration_number: string) {
-  continueApplying({ receipt_registration_number }).then(
-    (res: ReceiptRegistrationCookie) => {
-      const cookie = useCookie("receiptRegistrationNumber", {
-        domain: config.public.ServiceDomain,
-        httpOnly: process.env.NODE_ENV === "production",
-        secure: process.env.NODE_ENV === "production",
-        maxAge: 60 * 60 * 24 * 7,
-      });
-      cookie.value = res.receiptRegistrationNumber;
-    },
-  );
+  await continueApplying({ receipt_registration_number });
   window.open("/applying", "_blank");
 }
 </script>

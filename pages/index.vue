@@ -20,6 +20,7 @@ import indexItems from "~/constants/indexItems.ts";
 // eslint-disable-next-line no-undef
 definePageMeta({
   layout: "index-page",
+  middleware: ["default"],
 });
 </script>
 

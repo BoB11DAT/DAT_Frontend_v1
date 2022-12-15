@@ -28,13 +28,6 @@ let loginDatas = ref({
 
 async function userLogin() {
   login(loginDatas.value).then((res) => {
-    const cookie = useCookie("refreshToken", {
-      domain: config.public.ServiceDomain,
-      httpOnly: process.env.NODE_ENV === "production",
-      secure: process.env.NODE_ENV === "production",
-      maxAge: 60 * 60 * 24 * 7,
-    });
-    cookie.value = res.refreshToken;
     location.href = "/";
   });
 }

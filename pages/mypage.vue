@@ -38,7 +38,6 @@ function setCurrentObjecton(value: number) {
 }
 
 function setObjectionId(value: number) {
-  console.log(value)
   objectionId.value = value;
 }
 

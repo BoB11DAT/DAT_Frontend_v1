@@ -55,12 +55,6 @@ const notWrited = computed(() => {
 });
 const judges = await getJudges();
 const applyingAnswers = await getApplyingAnswer();
-const cookie = useCookie("receiptRegistrationNumber", {
-  domain: config.public.ServiceDomain,
-  httpOnly: process.env.NODE_ENV === "production",
-  secure: process.env.NODE_ENV === "production",
-  maxAge: 60 * 60 * 24 * 7,
-});
 
 let popupView = ref(false) as Ref<boolean>;
 
@@ -71,14 +65,12 @@ async function endApplying() {
   }
   await applyingEnd();
   alert("수고하셨습니다. 제출이 완료되었습니다.");
-  cookie.value = null;
   router.push({ path: "result" });
 }
 
 async function endApplyingforPopup() {
   await applyingEnd();
   alert("수고하셨습니다. 제출이 완료되었습니다.");
-  cookie.value = null;
   router.push({ path: "result" });
 }
 

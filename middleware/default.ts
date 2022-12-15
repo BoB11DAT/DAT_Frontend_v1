@@ -8,8 +8,7 @@ export default defineNuxtRouteMiddleware(async () => {
     try {
       authStore.setAccessToken((await getAccessToken()).accessToken);
     } catch (e) {
-      const route = useRouter();
-      route.push("/login");
+      authStore.setAccessToken(null);
     }
   }
 });
