@@ -5,6 +5,10 @@ div {
   flex-direction: column;
 }
 
+form {
+  text-align: center;
+}
+
 input {
   display: block;
   background-color: #F5F6F7;
@@ -16,8 +20,26 @@ input {
   margin: 18px auto;
 }
 
+
+label {
+  margin-bottom: 10px;
+
+  input {
+    display: inline;
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  span {
+    vertical-align: middle;
+  }
+}
+
 .logo {
-  margin: 30px auto;
+  margin: 30px auto 0;
   display: flex;
   flex-direction: row;
   vertical-align: middle;
@@ -37,7 +59,7 @@ input {
 
 button {
   display: block;
-  margin: 0 auto;
+  margin: 10px auto 0;
   width: 180px;
   height: 32px;
   background-color: $login_panel_button_background_color;

@@ -24,6 +24,10 @@
         placeholder="전화번호"
       />
       <input v-model="registerDatas.user_birth" type="date" />
+      <label>
+        <input type="checkbox" />
+        <span>서비스 이용약관에 동의합니다.</span>
+      </label>
       <button type="submit">회원가입</button>
     </form>
   </div>

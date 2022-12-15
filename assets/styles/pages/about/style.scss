@@ -1,0 +1,47 @@
+@import "_variables.scss";
+
+.about {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+
+  .title {
+    font-size: 20px;
+  }
+  
+  hr {
+    margin: 10px 0;
+    border-top: 1px solid $about_page_border_color;
+  }
+
+  h2 {
+    margin-bottom: 28px;
+    font-size: 26px;
+    font-weight: $font_bold;
+  }
+
+  h3 {
+    margin-top: 32px;
+    font-size: 24px;
+    font-weight: $font_semi_bold;
+  }
+
+  p {
+    font-size: 20px;
+    font-weight: $font_regular;
+
+    &:last-child {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}

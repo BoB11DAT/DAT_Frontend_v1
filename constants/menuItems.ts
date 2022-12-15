@@ -59,4 +59,13 @@ export default {
       },
     ],
   },
+  about: {
+    title: "About",
+    contents: [
+      {
+        content: "About",
+        param: "about",
+      },
+    ],
+  },
 };

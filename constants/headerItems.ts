@@ -19,4 +19,12 @@ export default [
     content: "공지사항",
     path: "notice",
   },
+  {
+    content: "PDF",
+    path: "https://pdf.datg.xyz",
+  },
+  {
+    content: "DocDoc",
+    path: "https://doc.datg.xyz",
+  },
 ];
