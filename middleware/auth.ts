@@ -7,7 +7,7 @@ export default defineNuxtRouteMiddleware(async () => {
   if (!authStore.getAccessToken) {
     const res = await getAccessToken();
     if (res.response?.status === 401) {
-      return navigateTo("/login");
+      return navigateTo("/login/");
     }
     authStore.setAccessToken(res.accessToken);
   }

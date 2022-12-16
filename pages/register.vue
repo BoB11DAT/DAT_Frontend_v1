@@ -35,6 +35,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 import { useCookie } from "#app";
 import { register } from "~/api/auth";
 
@@ -55,7 +56,8 @@ async function userRegister() {
   if (serviceCheck.value) {
     try {
       await register(registerDatas.value);
-      location.href = "login";
+      const route = useRouter();
+      route.push("/login/");
     } catch (e) {
       alert("error");
       return;
