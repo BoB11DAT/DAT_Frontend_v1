@@ -1,22 +1,22 @@
 export default [
   {
     content: "About DAT",
-    path: "/about",
+    path: "/about/",
   },
   {
     content: "평가 접수",
-    path: "/receipt",
+    path: "/receipt/",
   },
   {
     content: "평가 응시",
-    path: "/apply",
+    path: "/apply/",
   },
   {
     content: "결과 조회",
-    path: "/result",
+    path: "/result/",
   },
   {
     content: "공지사항",
-    path: "/notice",
+    path: "/notice/",
   },
 ];
