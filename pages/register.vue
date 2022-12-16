@@ -26,7 +26,7 @@
       <input v-model="registerDatas.user_birth" type="date" />
       <label>
         <input v-model="serviceCheck" type="checkbox" />
-        <span>서비스 이용약관에 동의합니다.</span>
+        <span>[필수] 서비스 이용약관 및 처리방침에 동의합니다.</span>
       </label>
       <button type="submit" :class="{ disabled: !serviceCheck }">회원가입</button>
     </form>
