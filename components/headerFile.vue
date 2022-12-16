@@ -6,9 +6,7 @@
     <template v-for="(i, n) in headerItems" :key="n">
       <NuxtLink :to="{ path: i.path }" class="header_item">{{ i.content }}</NuxtLink>
     </template>
-    <a href="https://pdf.datg.xyz" target="_blank" class="header_item">
-      절차기반<br />시나리오
-    </a>
+    <a href="https://pdf.datg.xyz" target="_blank" class="header_item"> PDF </a>
     <a href="https://doc.datg.xyz" target="_blank" class="header_item">
       DocDoc
     </a>
