@@ -11,12 +11,16 @@
       DocDoc
     </a>
     <template v-if="store.getAccessToken">
-      <NuxtLink :to="'mypage'" class="my_page">마이 페이지</NuxtLink>
+      <NuxtLink :to="{ path: '/mypage/' }" class="my_page"
+        >마이 페이지</NuxtLink
+      >
       <button class="logout" @click="logoutAction()">로그아웃</button>
     </template>
     <template v-else>
-      <NuxtLink :to="'login'" class="login">로그인</NuxtLink>
-      <NuxtLink :to="'register'" class="register">회원가입</NuxtLink>
+      <NuxtLink :to="{ path: '/login/' }" class="login">로그인</NuxtLink>
+      <NuxtLink :to="{ path: '/register/' }" class="register"
+        >회원가입
+      </NuxtLink>
     </template>
   </header>
 </template>
