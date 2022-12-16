@@ -57,7 +57,7 @@ async function userRegister() {
     try {
       await register(registerDatas.value);
       const route = useRouter();
-      route.push("/login/");
+      route.push({ path: "/login/" });
     } catch (e) {
       alert("error");
       return;
