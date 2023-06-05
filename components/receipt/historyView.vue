@@ -41,7 +41,7 @@
             <button
               v-else
               :class="{ disabled: !checkEnd(historyOrder) }"
-              @click="router.push({ path: 'apply', replace: true })"
+              @click="router.push({ name: 'apply' })"
             >
               응시
             </button>
