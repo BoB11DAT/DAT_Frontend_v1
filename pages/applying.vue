@@ -65,13 +65,13 @@ async function endApplying() {
   }
   await applyingEnd();
   alert("수고하셨습니다. 제출이 완료되었습니다.");
-  router.push("result");
+  router.push({ path: "result", replace: true });
 }
 
 async function endApplyingforPopup() {
   await applyingEnd();
   alert("수고하셨습니다. 제출이 완료되었습니다.");
-  router.push("result");
+  router.push({ path: "result", replace: true });
 }
 
 function cancelEndApplying() {
